@@ -306,7 +306,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1757662679}
   - component: {fileID: 1757662678}
-  - component: {fileID: 1757662677}
   m_Layer: 0
   m_Name: gameObject
   m_TagString: Untagged
@@ -314,33 +313,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1757662677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757662676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06434340ef649814dab4fdcdba129e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 8533e250c39918f4cb1ec8fc2c485cd3, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1757662678}
-        m_MethodName: ShowValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1757662678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1bba8646c99b554caeea212a25b04a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatVariable: {fileID: 11400000, guid: c93513695bffd2d4f94d7dccc79c0ed1, type: 2}
 --- !u!4 &1757662679
 Transform:
   m_ObjectHideFlags: 0
