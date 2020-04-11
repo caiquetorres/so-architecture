@@ -78,12 +78,13 @@ namespace SOArchitecture
                 {
                     CreateGameEvent(_className, _filePath);
                 }
+                AssetDatabase.Refresh();
             }
         }
         
         private static void CreateGameEvent(string className, string path)
         {
-            var pathToFile = string.Concat(path, "/GameEvents/");
+            var pathToFile = string.Concat(path, "/", className, "/");
             var gameEventFilePath = string.Concat(pathToFile, className, "GameEvent.cs");
 
             if (!Directory.Exists(pathToFile))
@@ -91,21 +92,54 @@ namespace SOArchitecture
 
             if (!File.Exists(gameEventFilePath))
                 File.Create(gameEventFilePath).Dispose();
-
             using (var outfile = new StreamWriter(gameEventFilePath))
             {
-                outfile.WriteLine("using SOArchitecture;");
                 outfile.WriteLine("using UnityEngine;");
+                outfile.WriteLine("using SOArchitecture;");
                 outfile.WriteLine(string.Concat(
                     "\n[CreateAssetMenu(menuName = ", '"', "SOArchitecture/GameEvents/", _className, '"', ", fileName = ", '"', "New", _className, "GameEvent", '"', ")]"));
                 outfile.WriteLine(string.Concat("public class ", _className, "GameEvent : GameEventBase<", _className, "> { }"));
             }
-            AssetDatabase.Refresh();
+
+            var unityEventFilePath = string.Concat(pathToFile, className,"UnityEvent.cs");
+            if (!File.Exists(unityEventFilePath))
+                File.Create(unityEventFilePath).Dispose();
+            using (var outfile = new StreamWriter(unityEventFilePath))
+            {
+                outfile.WriteLine("using UnityEngine.Events;\n");
+                outfile.WriteLine("[System.Serializable]");
+                outfile.WriteLine(string.Concat("public class ", className, "UnityEvent : UnityEvent<", className, "> { }"));
+            }
+            
+            var gameEventListenerFilePath = string.Concat(pathToFile, className, "GameEventListener.cs");
+            if (!File.Exists(gameEventListenerFilePath))
+                File.Create(gameEventListenerFilePath).Dispose();
+            using (var outfile = new StreamWriter(gameEventListenerFilePath))
+            {
+                outfile.WriteLine("using SOArchitecture;");
+                outfile.WriteLine(string.Concat("public class ", className, "GameEventListener : GameEventListenerBase<", className, ", ", className, "GameEvent, ", className, "UnityEvent> { }"));
+            }
         }
 
         private static void CreateVariable(string className, string path)
         {
+            var pathToFile = string.Concat(path, "/", className, "/");
+            var variableFilePath = string.Concat(pathToFile, className, "Variable.cs");
+
+            if (!Directory.Exists(pathToFile))
+                Directory.CreateDirectory(pathToFile);
+
+            if (!File.Exists(variableFilePath))
+                File.Create(variableFilePath).Dispose();
             
+            using (var outfile = new StreamWriter(variableFilePath))
+            {
+                outfile.WriteLine("using UnityEngine;");
+                outfile.WriteLine("using SOArchitecture;\n");
+                outfile.WriteLine(string.Concat(
+                    "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Variables/", _className, '"', ", fileName = ", '"', "New", _className, "Variable", '"', ")]"));
+                outfile.WriteLine(string.Concat("public class ", className, "Variable : VariableBase<", className, ", ", className, "GameEvent> { }"));
+            }
         }
     }
 }

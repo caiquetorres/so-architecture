@@ -17,7 +17,8 @@ namespace SOArchitecture
         public virtual void SetValue(TValue value)
         {
             this.value = value;
-            gameEvent.Raise(value);
+            if (gameEvent != null)
+                gameEvent.Raise(value);
         }
     }
 }
