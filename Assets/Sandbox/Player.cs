@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
-using SOArchitecture;
 using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameEventFloat gameEventFloat;
+    [SerializeField] private FloatVariable floatVariable;
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(2f);
-        gameEventFloat.Raise(3.4f);
+        floatVariable.Value = 2f;
     }
 
     public void ShowValue(float value)

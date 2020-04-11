@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1bba8646c99b554caeea212a25b04a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEventFloat: {fileID: 11400000, guid: 8533e250c39918f4cb1ec8fc2c485cd3, type: 2}
+  floatVariable: {fileID: 11400000, guid: c93513695bffd2d4f94d7dccc79c0ed1, type: 2}
 --- !u!4 &1757662679
 Transform:
   m_ObjectHideFlags: 0
