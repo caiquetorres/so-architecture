@@ -101,6 +101,32 @@ namespace SOArchitecture
                 outfile.WriteLine(string.Concat("public class ", _className, "GameEvent : GameEventBase<", _className, "> { }"));
             }
 
+            var pathToEditor = string.Concat(pathToFile, "Editor/");
+            var editorFilePath = string.Concat(pathToEditor, className, "GameEventEditor.cs");
+            
+            if (!Directory.Exists(pathToEditor))
+                Directory.CreateDirectory(pathToEditor);
+            
+            if (!File.Exists(editorFilePath))
+                File.Create(editorFilePath).Dispose();
+
+            using (var outfile = new StreamWriter(editorFilePath))
+            {
+                outfile.WriteLine("using System.IO;\nusing UnityEditor;\nusing SOArchitecture;\n");
+                outfile.WriteLine(string.Concat("[CustomEditor(typeof(", className, "GameEvent))]"));
+                outfile.WriteLine(string.Concat("public class ", className, "GameEventEditor : GameEventEditorBase<", className, ", ", className, "GameEvent>\n{"));
+                outfile.WriteLine("    protected override void CreateInterface(string name)");
+                outfile.WriteLine("    {");
+                outfile.WriteLine("        base.CreateInterface(name);");
+                outfile.WriteLine("        using (var outfile = new StreamWriter(NewInterfaceFilePath))");
+                outfile.WriteLine("        {");
+                outfile.WriteLine(string.Concat("            outfile.WriteLine(string.Concat(", '"', "public interface I", '"', ", name));"));
+                outfile.WriteLine(string.Concat("            outfile.WriteLine(", '"', '{', '"', ");"));
+                outfile.WriteLine(string.Concat("            outfile.WriteLine(string.Concat(", '"', "    void ", '"', ", name, ", '"', '(', className, " value);", '"', "));"));
+                outfile.WriteLine(string.Concat("            outfile.WriteLine(", '"', '}', '"', ");"));
+                outfile.WriteLine("        }\n\n        AssetDatabase.Refresh();\n    }\n}");
+            }
+
             var unityEventFilePath = string.Concat(pathToFile, className,"UnityEvent.cs");
             if (!File.Exists(unityEventFilePath))
                 File.Create(unityEventFilePath).Dispose();

@@ -28,10 +28,12 @@ namespace SOArchitecture
     
     public abstract class GameEventBase<T> : ScriptableObject, IGameEvent<T>
     {
+        public T value;
         private readonly List<IGameEventListener<T>> _listeners = new List<IGameEventListener<T>>();
         
         public void Raise(T value)
         {
+            this.value = value;
             _listeners.ForEach(listener =>
             {
                 listener.OnEventRaised(value);
