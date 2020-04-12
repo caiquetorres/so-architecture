@@ -45,7 +45,7 @@ namespace SOArchitecture
                         typeof(TextAsset), 
                         false);
                     
-                    _className = _textAsset == null ? "none" : _textAsset.name;
+                    _className = _textAsset == null ? "" : _textAsset.name;
                     break;
                 case 1:
                     _className = EditorGUILayout.TextField("Text:", _className);
@@ -66,6 +66,9 @@ namespace SOArchitecture
 
             if (GUILayout.Button("Create"))
             {
+                if (_className == string.Empty && _textAsset == null)
+                    throw new Exception("You must write some name first");
+                
                 if (!Directory.Exists(_filePath) || _filePath == string.Empty)
                     throw new Exception("The path does not exist or is null");
 
@@ -84,8 +87,8 @@ namespace SOArchitecture
         
         private static void CreateGameEvent(string className, string path)
         {
-            var pathToFile = string.Concat(path, "/", className, "/");
-            var gameEventFilePath = string.Concat(pathToFile, className, "GameEvent.cs");
+            var pathToFile = string.Concat(path, "/", className.ToTitle(), "/");
+            var gameEventFilePath = string.Concat(pathToFile, className.ToTitle(), "GameEvent.cs");
 
             if (!Directory.Exists(pathToFile))
                 Directory.CreateDirectory(pathToFile);
@@ -97,12 +100,12 @@ namespace SOArchitecture
                 outfile.WriteLine("using UnityEngine;");
                 outfile.WriteLine("using SOArchitecture;");
                 outfile.WriteLine(string.Concat(
-                    "\n[CreateAssetMenu(menuName = ", '"', "SOArchitecture/GameEvents/", _className, '"', ", fileName = ", '"', "New", _className, "GameEvent", '"', ")]"));
-                outfile.WriteLine(string.Concat("public class ", _className, "GameEvent : GameEventBase<", _className, "> { }"));
+                    "\n[CreateAssetMenu(menuName = ", '"', "SOArchitecture/GameEvents/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "GameEvent", '"', ")]"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEvent : GameEventBase<", className, "> { }"));
             }
 
             var pathToEditor = string.Concat(pathToFile, "Editor/");
-            var editorFilePath = string.Concat(pathToEditor, className, "GameEventEditor.cs");
+            var editorFilePath = string.Concat(pathToEditor, className.ToTitle(), "GameEventEditor.cs");
             
             if (!Directory.Exists(pathToEditor))
                 Directory.CreateDirectory(pathToEditor);
@@ -113,8 +116,8 @@ namespace SOArchitecture
             using (var outfile = new StreamWriter(editorFilePath))
             {
                 outfile.WriteLine("using System.IO;\nusing UnityEditor;\nusing SOArchitecture;\n");
-                outfile.WriteLine(string.Concat("[CustomEditor(typeof(", className, "GameEvent))]"));
-                outfile.WriteLine(string.Concat("public class ", className, "GameEventEditor : GameEventEditorBase<", className, ", ", className, "GameEvent>\n{"));
+                outfile.WriteLine(string.Concat("[CustomEditor(typeof(", className.ToTitle(), "GameEvent))]"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEventEditor : GameEventEditorBase<", className, ", ", className.ToTitle(), "GameEvent>\n{"));
                 outfile.WriteLine("    protected override void CreateInterface(string name)");
                 outfile.WriteLine("    {");
                 outfile.WriteLine("        base.CreateInterface(name);");
@@ -127,30 +130,30 @@ namespace SOArchitecture
                 outfile.WriteLine("        }\n\n        AssetDatabase.Refresh();\n    }\n}");
             }
 
-            var unityEventFilePath = string.Concat(pathToFile, className,"UnityEvent.cs");
+            var unityEventFilePath = string.Concat(pathToFile, className.ToTitle(),"UnityEvent.cs");
             if (!File.Exists(unityEventFilePath))
                 File.Create(unityEventFilePath).Dispose();
             using (var outfile = new StreamWriter(unityEventFilePath))
             {
                 outfile.WriteLine("using UnityEngine.Events;\n");
                 outfile.WriteLine("[System.Serializable]");
-                outfile.WriteLine(string.Concat("public class ", className, "UnityEvent : UnityEvent<", className, "> { }"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "UnityEvent : UnityEvent<", className, "> { }"));
             }
             
-            var gameEventListenerFilePath = string.Concat(pathToFile, className, "GameEventListener.cs");
+            var gameEventListenerFilePath = string.Concat(pathToFile, className.ToTitle(), "GameEventListener.cs");
             if (!File.Exists(gameEventListenerFilePath))
                 File.Create(gameEventListenerFilePath).Dispose();
             using (var outfile = new StreamWriter(gameEventListenerFilePath))
             {
                 outfile.WriteLine("using SOArchitecture;");
-                outfile.WriteLine(string.Concat("public class ", className, "GameEventListener : GameEventListenerBase<", className, ", ", className, "GameEvent, ", className, "UnityEvent> { }"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEventListener : GameEventListenerBase<", className, ", ", className.ToTitle(), "GameEvent, ", className.ToTitle(), "UnityEvent> { }"));
             }
         }
 
         private static void CreateVariable(string className, string path)
         {
-            var pathToFile = string.Concat(path, "/", className, "/");
-            var variableFilePath = string.Concat(pathToFile, className, "Variable.cs");
+            var pathToFile = string.Concat(path, "/", className.ToTitle(), "/");
+            var variableFilePath = string.Concat(pathToFile, className.ToTitle(), "Variable.cs");
 
             if (!Directory.Exists(pathToFile))
                 Directory.CreateDirectory(pathToFile);
@@ -163,9 +166,17 @@ namespace SOArchitecture
                 outfile.WriteLine("using UnityEngine;");
                 outfile.WriteLine("using SOArchitecture;\n");
                 outfile.WriteLine(string.Concat(
-                    "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Variables/", _className, '"', ", fileName = ", '"', "New", _className, "Variable", '"', ")]"));
-                outfile.WriteLine(string.Concat("public class ", className, "Variable : VariableBase<", className, ", ", className, "GameEvent> { }"));
+                    "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Variables/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "Variable", '"', ")]"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "Variable : VariableBase<", className, ", ", className.ToTitle(), "GameEvent> { }"));
             }
+        }
+    }
+    
+    public static class StringExtender
+    {
+        public static string ToTitle(this string value)
+        {
+            return string.Concat(value[0].ToString().ToUpper(), value.Substring(1, value.Length - 1));
         }
     }
 }
