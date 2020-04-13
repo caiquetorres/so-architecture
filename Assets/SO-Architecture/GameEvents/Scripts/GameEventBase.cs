@@ -29,6 +29,9 @@ namespace SOArchitecture
     public abstract class GameEventBase<T> : ScriptableObject, IGameEvent<T>
     {
         public T value;
+#if UNITY_EDITOR
+        public T simulateValue;
+#endif
         private readonly List<IGameEventListener<T>> _listeners = new List<IGameEventListener<T>>();
         
         public void Raise(T value)

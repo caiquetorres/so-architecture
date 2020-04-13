@@ -47,7 +47,7 @@ namespace SOArchitecture
             EditorGUI.BeginDisabledGroup(!Application.isPlaying);
 
             GUILayout.Label("Value: " + _gameEvent.value, boldText);
-
+            
             var so = new SerializedObject(_gameEvent);
             var sp = so.FindProperty("simulateValue");
             if (sp != null)
@@ -60,7 +60,7 @@ namespace SOArchitecture
             GUILayout.Label("Press the Raise button to simulate the event in the game");
             if (GUILayout.Button("Raise"))
             {
-                
+                _gameEvent.Raise(_gameEvent.simulateValue);
             }
             
             EditorGUI.EndDisabledGroup();
