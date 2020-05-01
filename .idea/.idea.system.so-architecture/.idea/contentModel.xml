@@ -15,14 +15,6 @@
             <e p="Scripts" t="Include">
               <e p="Collection.cs" t="Include" />
             </e>
-            <e p="Types" t="Include">
-              <e p="Int" t="Include">
-                <e p="CollectionInt.cs" t="Include" />
-                <e p="Editor" t="Include">
-                  <e p="CollectionIntEditorBase.cs" t="Include" />
-                </e>
-              </e>
-            </e>
           </e>
           <e p="Creators" t="Include">
             <e p="SOGerenerator.cs" t="Include" />
@@ -42,33 +34,28 @@
           </e>
           <e p="Types" t="Include">
             <e p="bool" t="Include">
+              <e p="BoolCollection.cs" t="Include" />
               <e p="boolGameEvent.cs" t="Include" />
               <e p="boolGameEventListener.cs" t="Include" />
               <e p="boolUnityEvent.cs" t="Include" />
               <e p="boolVariable.cs" t="Include" />
               <e p="Editor" t="Include">
+                <e p="BoolCollectionEditor.cs" t="Include" />
                 <e p="BoolGameEventEditor.cs" t="Include" />
               </e>
             </e>
             <e p="char" t="Include">
+              <e p="CharCollection.cs" t="Include" />
               <e p="charGameEvent.cs" t="Include" />
               <e p="charGameEventListener.cs" t="Include" />
               <e p="charUnityEvent.cs" t="Include" />
               <e p="charVariable.cs" t="Include" />
               <e p="Editor" t="Include">
+                <e p="CharCollectionEditor.cs" t="Include" />
                 <e p="CharGameEventEditor.cs" t="Include" />
               </e>
             </e>
-            <e p="Double" t="Include">
-              <e p="DoubleGameEvent.cs" t="Include" />
-              <e p="DoubleGameEventListener.cs" t="Include" />
-              <e p="DoubleUnityEvent.cs" t="Include" />
-              <e p="DoubleVariable.cs" t="Include" />
-              <e p="Editor" t="Include">
-                <e p="DoubleGameEventEditor.cs" t="Include" />
-              </e>
-            </e>
-            <e p="FloatSO" t="Include">
+            <e p="float" t="Include">
               <e p="Editor" t="Include">
                 <e p="FloatCollectionEditor.cs" t="Include" />
                 <e p="FloatGameEventEditor.cs" t="Include" />
@@ -81,57 +68,14 @@
             </e>
             <e p="GameObject" t="Include">
               <e p="Editor" t="Include">
+                <e p="GameObjectCollectionEditor.cs" t="Include" />
                 <e p="GameObjectGameEventEditor.cs" t="Include" />
               </e>
+              <e p="GameObjectCollection.cs" t="Include" />
               <e p="GameObjectGameEvent.cs" t="Include" />
               <e p="GameObjectGameEventListener.cs" t="Include" />
               <e p="GameObjectUnityEvent.cs" t="Include" />
               <e p="GameObjectVariable.cs" t="Include" />
-            </e>
-            <e p="Int" t="Include">
-              <e p="Editor" t="Include">
-                <e p="IntGameEventEditor.cs" t="Include" />
-              </e>
-              <e p="IntGameEvent.cs" t="Include" />
-              <e p="intGameEventListener.cs" t="Include" />
-              <e p="intUnityEvent.cs" t="Include" />
-              <e p="intVariable.cs" t="Include" />
-            </e>
-            <e p="string" t="Include">
-              <e p="Editor" t="Include">
-                <e p="StringGameEventEditor.cs" t="Include" />
-              </e>
-              <e p="stringGameEvent.cs" t="Include" />
-              <e p="stringGameEventListener.cs" t="Include" />
-              <e p="stringUnityEvent.cs" t="Include" />
-              <e p="stringVariable.cs" t="Include" />
-            </e>
-            <e p="Transform" t="Include">
-              <e p="Editor" t="Include">
-                <e p="TransformGameEventEditor.cs" t="Include" />
-              </e>
-              <e p="TransformGameEvent.cs" t="Include" />
-              <e p="TransformGameEventListener.cs" t="Include" />
-              <e p="TransformUnityEvent.cs" t="Include" />
-              <e p="TransformVariable.cs" t="Include" />
-            </e>
-            <e p="Vector2" t="Include">
-              <e p="Editor" t="Include">
-                <e p="Vector2GameEventEditor.cs" t="Include" />
-              </e>
-              <e p="Vector2GameEvent.cs" t="Include" />
-              <e p="Vector2GameEventListener.cs" t="Include" />
-              <e p="Vector2UnityEvent.cs" t="Include" />
-              <e p="Vector2Variable.cs" t="Include" />
-            </e>
-            <e p="Vector3" t="Include">
-              <e p="Editor" t="Include">
-                <e p="Vector3GameEventEditor.cs" t="Include" />
-              </e>
-              <e p="Vector3GameEvent.cs" t="Include" />
-              <e p="Vector3GameEventListener.cs" t="Include" />
-              <e p="Vector3UnityEvent.cs" t="Include" />
-              <e p="Vector3Variable.cs" t="Include" />
             </e>
             <e p="Void" t="Include">
               <e p="Editor" t="Include">
