@@ -58,5 +58,7 @@ namespace SOArchitecture
         public IEnumerator<TValue> GetEnumerator() => items.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => items.GetEnumerator();
+
+        public List<TValue> GetList() => items;
     }
 }
