@@ -8,6 +8,22 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="SO-Architecture" t="Include">
+          <e p="Collections" t="Include">
+            <e p="Editor" t="Include">
+              <e p="CollectionEditorBase.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Collection.cs" t="Include" />
+            </e>
+            <e p="Types" t="Include">
+              <e p="Int" t="Include">
+                <e p="CollectionInt.cs" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="CollectionIntEditorBase.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="Creators" t="Include">
             <e p="SOGerenerator.cs" t="Include" />
           </e>
@@ -52,14 +68,25 @@
                 <e p="DoubleGameEventEditor.cs" t="Include" />
               </e>
             </e>
-            <e p="float" t="Include">
+            <e p="FloatSO" t="Include">
               <e p="Editor" t="Include">
+                <e p="FloatCollectionEditor.cs" t="Include" />
                 <e p="FloatGameEventEditor.cs" t="Include" />
               </e>
+              <e p="FloatCollection.cs" t="Include" />
               <e p="floatGameEvent.cs" t="Include" />
               <e p="FloatGameEventListener.cs" t="Include" />
               <e p="floatUnityEvent.cs" t="Include" />
               <e p="FloatVariable.cs" t="Include" />
+            </e>
+            <e p="GameObject" t="Include">
+              <e p="Editor" t="Include">
+                <e p="GameObjectGameEventEditor.cs" t="Include" />
+              </e>
+              <e p="GameObjectGameEvent.cs" t="Include" />
+              <e p="GameObjectGameEventListener.cs" t="Include" />
+              <e p="GameObjectUnityEvent.cs" t="Include" />
+              <e p="GameObjectVariable.cs" t="Include" />
             </e>
             <e p="Int" t="Include">
               <e p="Editor" t="Include">
@@ -78,6 +105,15 @@
               <e p="stringGameEventListener.cs" t="Include" />
               <e p="stringUnityEvent.cs" t="Include" />
               <e p="stringVariable.cs" t="Include" />
+            </e>
+            <e p="Transform" t="Include">
+              <e p="Editor" t="Include">
+                <e p="TransformGameEventEditor.cs" t="Include" />
+              </e>
+              <e p="TransformGameEvent.cs" t="Include" />
+              <e p="TransformGameEventListener.cs" t="Include" />
+              <e p="TransformUnityEvent.cs" t="Include" />
+              <e p="TransformVariable.cs" t="Include" />
             </e>
             <e p="Vector2" t="Include">
               <e p="Editor" t="Include">

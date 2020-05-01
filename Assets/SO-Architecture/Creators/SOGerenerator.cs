@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -10,6 +12,7 @@ namespace SOArchitecture
         private static string _className;
         private static TextAsset _textAsset;
 
+        private bool _collection;
         private bool _variable;
         private bool _gameEvent;
         
@@ -26,6 +29,7 @@ namespace SOArchitecture
 
         private void OnGUI()
         {
+            _collection = GUILayout.Toggle(_collection, "Collection");
             _variable = GUILayout.Toggle(_variable, "Variable");
 
             EditorGUI.BeginDisabledGroup(_variable);
@@ -72,6 +76,11 @@ namespace SOArchitecture
                 if (!Directory.Exists(_filePath) || _filePath == string.Empty)
                     throw new Exception("The path does not exist or is null");
 
+                if (_collection)
+                {
+                    CreateCollection(_className, _filePath);
+                }
+                
                 if (_variable)
                 {
                     CreateGameEvent(_className, _filePath);
@@ -84,10 +93,70 @@ namespace SOArchitecture
                 AssetDatabase.Refresh();
             }
         }
+
+        private static void CreateCollection(string className, string path)
+        {
+            var pathToFile = string.Concat(path, "/", className.ToTitle(), "SO/");
+            var collectionFilePath = string.Concat(pathToFile, className.ToTitle(), "Collection.cs");
+            
+            if (!Directory.Exists(pathToFile))
+                Directory.CreateDirectory(pathToFile);
+
+            if (!File.Exists(collectionFilePath))
+                File.Create(collectionFilePath).Dispose();
+
+            using (var outfile = new StreamWriter(collectionFilePath))
+            {
+                outfile.WriteLine("using UnityEngine;");
+                outfile.WriteLine("using SOArchitecture;\n");
+                outfile.WriteLine(string.Concat(
+                    "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Collection/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "Collection", '"', ")]"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "Collection : Collection<", className, "> { }"));
+            }
+            
+            var pathToEditor = string.Concat(pathToFile, "Editor/");
+            var editorFilePath = string.Concat(pathToEditor, className.ToTitle(), "CollectionEditor.cs");
+            
+            if (!Directory.Exists(pathToEditor))
+                Directory.CreateDirectory(pathToEditor);
+            
+            if (!File.Exists(editorFilePath))
+                File.Create(editorFilePath).Dispose();
+
+            using (var outfile = new StreamWriter(editorFilePath))
+            {
+                outfile.WriteLine("using UnityEditor;\nusing SOArchitecture;\n");
+                outfile.WriteLine(string.Concat("[CustomEditor(typeof(", className.ToTitle(), "Collection))]"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(),
+                    "CollectionEditor : CollectionEditorBase"));
+                outfile.WriteLine(string.Concat("{\n", "\tprotected override string Name => ", '"', className.ToTitle(), '"', ";\n}"));
+            }
+        }
+        
+        private static void CreateVariable(string className, string path)
+        {
+            var pathToFile = string.Concat(path, "/", className.ToTitle(), "SO/");
+            var variableFilePath = string.Concat(pathToFile, className.ToTitle(), "Variable.cs");
+
+            if (!Directory.Exists(pathToFile))
+                Directory.CreateDirectory(pathToFile);
+
+            if (!File.Exists(variableFilePath))
+                File.Create(variableFilePath).Dispose();
+            
+            using (var outfile = new StreamWriter(variableFilePath))
+            {
+                outfile.WriteLine("using UnityEngine;");
+                outfile.WriteLine("using SOArchitecture;\n");
+                outfile.WriteLine(string.Concat(
+                    "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Variables/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "Variable", '"', ")]"));
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "Variable : VariableBase<", className, ", ", className.ToTitle(), "GameEvent> { }"));
+            }
+        }
         
         private static void CreateGameEvent(string className, string path)
         {
-            var pathToFile = string.Concat(path, "/", className.ToTitle(), "/");
+            var pathToFile = string.Concat(path, "/", className.ToTitle(), "SO/");
             var gameEventFilePath = string.Concat(pathToFile, className.ToTitle(), "GameEvent.cs");
 
             if (!Directory.Exists(pathToFile))
@@ -149,27 +218,6 @@ namespace SOArchitecture
                 outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEventListener : GameEventListenerBase<", className, ", ", className.ToTitle(), "GameEvent, ", className.ToTitle(), "UnityEvent> { }"));
             }
         }
-
-        private static void CreateVariable(string className, string path)
-        {
-            var pathToFile = string.Concat(path, "/", className.ToTitle(), "/");
-            var variableFilePath = string.Concat(pathToFile, className.ToTitle(), "Variable.cs");
-
-            if (!Directory.Exists(pathToFile))
-                Directory.CreateDirectory(pathToFile);
-
-            if (!File.Exists(variableFilePath))
-                File.Create(variableFilePath).Dispose();
-            
-            using (var outfile = new StreamWriter(variableFilePath))
-            {
-                outfile.WriteLine("using UnityEngine;");
-                outfile.WriteLine("using SOArchitecture;\n");
-                outfile.WriteLine(string.Concat(
-                    "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Variables/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "Variable", '"', ")]"));
-                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "Variable : VariableBase<", className, ", ", className.ToTitle(), "GameEvent> { }"));
-            }
-        }
     }
     
     public static class StringExtender
@@ -180,3 +228,5 @@ namespace SOArchitecture
         }
     }
 }
+
+#endif

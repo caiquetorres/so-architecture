@@ -9,10 +9,10 @@ namespace SOArchitecture
         
         public void Raise()
         {
-            _listeners.ForEach(listener =>
+            for (var i = _listeners.Count - 1; i >= 0; i--)
             {
-                listener.OnEventRaised();
-            });
+                _listeners[i].OnEventRaised();
+            }
         }
 
         public void Register(IGameEventListener listener)
@@ -34,13 +34,13 @@ namespace SOArchitecture
 #endif
         private readonly List<IGameEventListener<T>> _listeners = new List<IGameEventListener<T>>();
         
-        public void Raise(T value)
+        public virtual void Raise(T value)
         {
             this.value = value;
-            _listeners.ForEach(listener =>
+            for (var i = _listeners.Count - 1; i >= 0; i--)
             {
-                listener.OnEventRaised(value);
-            });
+                _listeners[i].OnEventRaised(value);
+            }
         }
 
         public void Register(IGameEventListener<T> listener)
