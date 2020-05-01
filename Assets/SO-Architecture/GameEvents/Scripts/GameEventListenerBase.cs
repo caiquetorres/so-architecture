@@ -22,7 +22,7 @@ namespace SOArchitecture
 
         public void OnEventRaised()
         {
-            response.Invoke();
+            response?.Invoke();
         }
     }
     
@@ -44,7 +44,7 @@ namespace SOArchitecture
 
         public void OnEventRaised(TValue value)
         {
-            response.Invoke(value);
+            response?.Invoke(value);
         }
     }
 }

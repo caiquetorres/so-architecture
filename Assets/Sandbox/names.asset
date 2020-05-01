@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c79f5cd8335ba42ba9474ac87cf79c, type: 3}
   m_Name: names
   m_EditorClassIdentifier: 
-  onChangedList: {fileID: 0}
+  onChangedCollection: {fileID: 0}
   items:
   - Caique
   - Thais
