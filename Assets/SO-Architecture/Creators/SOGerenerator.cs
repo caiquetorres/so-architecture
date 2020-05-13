@@ -33,9 +33,9 @@ namespace SOArchitecture
             _variable = GUILayout.Toggle(_variable, "Variable");
 
             EditorGUI.BeginDisabledGroup(_variable);
-            if (_variable)
-                _gameEvent = true;
-            _gameEvent = GUILayout.Toggle(_gameEvent, "Game Event");
+                if (_variable)
+                    _gameEvent = true;
+                _gameEvent = GUILayout.Toggle(_gameEvent, "Game Event");
             EditorGUI.EndDisabledGroup();
             
             GUILayout.Space(10);
@@ -186,17 +186,7 @@ namespace SOArchitecture
             {
                 outfile.WriteLine("using System.IO;\nusing UnityEditor;\nusing SOArchitecture;\n");
                 outfile.WriteLine(string.Concat("[CustomEditor(typeof(", className.ToTitle(), "GameEvent))]"));
-                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEventEditor : GameEventEditorBase<", className, ", ", className.ToTitle(), "GameEvent>\n{"));
-                outfile.WriteLine("    protected override void CreateInterface(string name)");
-                outfile.WriteLine("    {");
-                outfile.WriteLine("        base.CreateInterface(name);");
-                outfile.WriteLine("        using (var outfile = new StreamWriter(NewInterfaceFilePath))");
-                outfile.WriteLine("        {");
-                outfile.WriteLine(string.Concat("            outfile.WriteLine(string.Concat(", '"', "public interface I", '"', ", name));"));
-                outfile.WriteLine(string.Concat("            outfile.WriteLine(", '"', '{', '"', ");"));
-                outfile.WriteLine(string.Concat("            outfile.WriteLine(string.Concat(", '"', "    void ", '"', ", name, ", '"', '(', className, " value);", '"', "));"));
-                outfile.WriteLine(string.Concat("            outfile.WriteLine(", '"', '}', '"', ");"));
-                outfile.WriteLine("        }\n\n        AssetDatabase.Refresh();\n    }\n}");
+                outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEventEditor : GameEventEditorBase<", className, ", ", className.ToTitle(), "GameEvent> { }"));
             }
 
             var unityEventFilePath = string.Concat(pathToFile, className.ToTitle(),"UnityEvent.cs");

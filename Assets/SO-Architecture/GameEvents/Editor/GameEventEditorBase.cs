@@ -140,6 +140,16 @@ namespace SOArchitecture
             {
                 File.Delete(NewInterfaceFilePath);
             }
+            
+            using (var outfile = new StreamWriter(NewInterfaceFilePath))
+            {
+                outfile.WriteLine(string.Concat("public interface I", name));
+                outfile.WriteLine("{");
+                outfile.WriteLine(string.Concat("    void ", name, "(", typeof(TValue), " value);"));
+                outfile.WriteLine("}");
+            }
+
+            AssetDatabase.Refresh();
         }
     }
 }

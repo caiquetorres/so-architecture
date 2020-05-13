@@ -6,6 +6,8 @@ namespace SOArchitecture
 {
     public abstract class CollectionEditorBase : Editor
     {
+        private const string HelpMessage = "If you don't want to raise an event just keep the field as None";
+        
         protected abstract string Name { get; }
 
         private SerializedProperty _size;
@@ -40,7 +42,7 @@ namespace SOArchitecture
         {
             serializedObject.Update();
 
-            EditorGUILayout.HelpBox("If you don't want to raise an event just keep the field as None", MessageType.Info);
+            EditorGUILayout.HelpBox(HelpMessage, MessageType.Info);
             EditorGUILayout.PropertyField(_gameEvent);
             GUILayout.Space(10);
             EditorGUILayout.PropertyField(_size);

@@ -7,11 +7,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Sandbox" t="Include">
-          <e p="Interfaces" t="Include">
-            <e p="IOnChangedCharacterName.cs" t="Include" />
-          </e>
-        </e>
         <e p="SO-Architecture" t="Include">
           <e p="Collections" t="Include">
             <e p="Editor" t="Include">
