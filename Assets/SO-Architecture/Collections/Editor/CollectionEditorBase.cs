@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
+using UnityEditorInternal;
 
 namespace SOArchitecture
 {
@@ -8,22 +8,25 @@ namespace SOArchitecture
     {
         private const string HelpMessage = "If you don't want to raise an event just keep the field as None";
         
+        private const string ItemsProperty = "items";
+        private const string ArraySizeProperty = "Array.size";
+        private const string OnChangedCollectionGameEventProperty = "onChangedCollection";
+        
         protected abstract string Name { get; }
 
         private SerializedProperty _size;
         
         private SerializedProperty _items;
         private SerializedProperty _gameEvent;
-        
         private SerializedProperty _element;
         
         private ReorderableList _reorderableList;
 
         private void OnEnable()
         {
-            _gameEvent = serializedObject.FindProperty("onChangedCollection");
-            _items = serializedObject.FindProperty("items");
-            _size = _items.FindPropertyRelative("Array.size");
+            _gameEvent = serializedObject.FindProperty(OnChangedCollectionGameEventProperty);
+            _items = serializedObject.FindProperty(ItemsProperty);
+            _size = _items.FindPropertyRelative(ArraySizeProperty);
 
             _reorderableList = new ReorderableList(
                 serializedObject, _items, true, true, true, true)

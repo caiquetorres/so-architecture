@@ -4,6 +4,8 @@ using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEditorInternal;
+using System.Collections.Generic;
 
 namespace SOArchitecture
 {
@@ -19,12 +21,39 @@ namespace SOArchitecture
         private int _type;
 
         private string _filePath;
+
+        private SerializedObject _serializedObject;
         
-        [MenuItem("Window/SO Generator")]
-        public static void ShowWindow()
+        private SerializedProperty _element;
+        private SerializedProperty _list;
+        
+        private ReorderableList _reorderableList;
+        
+        [SerializeField] private List<string> references = new List<string>
+        {
+            "UnityEngine"
+        };
+        
+        [MenuItem("Window/SO Generator")] public static void ShowWindow()
         {
             var window = GetWindow<SOGerenerator>("SO Generator");
             window.minSize = new Vector2(406f, 250f);
+        }
+
+        private void OnEnable()
+        {
+            _serializedObject = new SerializedObject(this);
+            _list = _serializedObject.FindProperty("references");
+            _reorderableList = new ReorderableList(_serializedObject, _list, true, true, true, true)
+            {
+                drawElementCallback = (rect, index, isActive, isFocused) =>
+                {
+                    rect.height = EditorGUIUtility.singleLineHeight;
+                    _element = _reorderableList.serializedProperty.GetArrayElementAtIndex(index);
+                    EditorGUI.PropertyField(rect, _element);
+                },
+                drawHeaderCallback = rect => { EditorGUI.LabelField(rect, "Namespaces"); }
+            };
         }
 
         private void OnGUI()
@@ -37,6 +66,10 @@ namespace SOArchitecture
                     _gameEvent = true;
                 _gameEvent = GUILayout.Toggle(_gameEvent, "Game Event");
             EditorGUI.EndDisabledGroup();
+            
+            GUILayout.Space(10);
+            
+            _reorderableList.DoLayoutList();
             
             GUILayout.Space(10);
             _type = GUILayout.Toolbar(_type, new[] {"Asset", "String"});
@@ -94,7 +127,7 @@ namespace SOArchitecture
             }
         }
 
-        private static void CreateCollection(string className, string path)
+        private void CreateCollection(string className, string path)
         {
             var pathToFile = string.Concat(path, "/", className.ToTitle(), "SO/");
             var collectionFilePath = string.Concat(pathToFile, className.ToTitle(), "Collection.cs");
@@ -107,7 +140,11 @@ namespace SOArchitecture
 
             using (var outfile = new StreamWriter(collectionFilePath))
             {
-                outfile.WriteLine("using UnityEngine;");
+                references.ForEach(reference =>
+                {
+                    outfile.WriteLine(string.Concat("using ", reference, ";"));
+                });
+                
                 outfile.WriteLine("using SOArchitecture;\n");
                 outfile.WriteLine(string.Concat(
                     "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Collection/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "Collection", '"', ")]"));
@@ -125,6 +162,11 @@ namespace SOArchitecture
 
             using (var outfile = new StreamWriter(editorFilePath))
             {
+                references.ForEach(reference =>
+                {
+                    outfile.WriteLine(string.Concat("using ", reference, ";"));
+                });
+                
                 outfile.WriteLine("using UnityEditor;\nusing SOArchitecture;\n");
                 outfile.WriteLine(string.Concat("[CustomEditor(typeof(", className.ToTitle(), "Collection))]"));
                 outfile.WriteLine(string.Concat("public class ", className.ToTitle(),
@@ -133,7 +175,7 @@ namespace SOArchitecture
             }
         }
         
-        private static void CreateVariable(string className, string path)
+        private void CreateVariable(string className, string path)
         {
             var pathToFile = string.Concat(path, "/", className.ToTitle(), "SO/");
             var variableFilePath = string.Concat(pathToFile, className.ToTitle(), "Variable.cs");
@@ -146,7 +188,11 @@ namespace SOArchitecture
             
             using (var outfile = new StreamWriter(variableFilePath))
             {
-                outfile.WriteLine("using UnityEngine;");
+                references.ForEach(reference =>
+                {
+                    outfile.WriteLine(string.Concat("using ", reference, ";"));
+                });
+                
                 outfile.WriteLine("using SOArchitecture;\n");
                 outfile.WriteLine(string.Concat(
                     "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Variables/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "Variable", '"', ")]"));
@@ -154,7 +200,7 @@ namespace SOArchitecture
             }
         }
         
-        private static void CreateGameEvent(string className, string path)
+        private void CreateGameEvent(string className, string path)
         {
             var pathToFile = string.Concat(path, "/", className.ToTitle(), "SO/");
             var gameEventFilePath = string.Concat(pathToFile, className.ToTitle(), "GameEvent.cs");
@@ -166,7 +212,11 @@ namespace SOArchitecture
                 File.Create(gameEventFilePath).Dispose();
             using (var outfile = new StreamWriter(gameEventFilePath))
             {
-                outfile.WriteLine("using UnityEngine;");
+                references.ForEach(reference =>
+                {
+                    outfile.WriteLine(string.Concat("using ", reference, ";"));
+                });
+                
                 outfile.WriteLine("using SOArchitecture;");
                 outfile.WriteLine(string.Concat(
                     "\n[CreateAssetMenu(menuName = ", '"', "SOArchitecture/GameEvents/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "GameEvent", '"', ")]"));
@@ -184,6 +234,11 @@ namespace SOArchitecture
 
             using (var outfile = new StreamWriter(editorFilePath))
             {
+                references.ForEach(reference =>
+                {
+                    outfile.WriteLine(string.Concat("using ", reference, ";"));
+                });
+                
                 outfile.WriteLine("using System.IO;\nusing UnityEditor;\nusing SOArchitecture;\n");
                 outfile.WriteLine(string.Concat("[CustomEditor(typeof(", className.ToTitle(), "GameEvent))]"));
                 outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEventEditor : GameEventEditorBase<", className, ", ", className.ToTitle(), "GameEvent> { }"));
@@ -194,6 +249,11 @@ namespace SOArchitecture
                 File.Create(unityEventFilePath).Dispose();
             using (var outfile = new StreamWriter(unityEventFilePath))
             {
+                references.ForEach(reference =>
+                {
+                    outfile.WriteLine(string.Concat("using ", reference, ";"));
+                });
+                
                 outfile.WriteLine("using UnityEngine.Events;\n");
                 outfile.WriteLine("[System.Serializable]");
                 outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "UnityEvent : UnityEvent<", className, "> { }"));
@@ -204,6 +264,11 @@ namespace SOArchitecture
                 File.Create(gameEventListenerFilePath).Dispose();
             using (var outfile = new StreamWriter(gameEventListenerFilePath))
             {
+                references.ForEach(reference =>
+                {
+                    outfile.WriteLine(string.Concat("using ", reference, ";"));
+                });
+                
                 outfile.WriteLine("using SOArchitecture;");
                 outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "GameEventListener : GameEventListenerBase<", className, ", ", className.ToTitle(), "GameEvent, ", className.ToTitle(), "UnityEvent> { }"));
             }
