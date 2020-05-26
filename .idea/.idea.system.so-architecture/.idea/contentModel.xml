@@ -7,6 +7,22 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Sandbox" t="Include">
+          <e p="Direction" t="Include">
+            <e p="Direction.cs" t="Include" />
+            <e p="DirectionSO" t="Include">
+              <e p="DirectionCollection.cs" t="Include" />
+              <e p="DirectionGameEvent.cs" t="Include" />
+              <e p="DirectionGameEventListener.cs" t="Include" />
+              <e p="DirectionUnityEvent.cs" t="Include" />
+              <e p="DirectionVariable.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="DirectionCollectionEditor.cs" t="Include" />
+                <e p="DirectionGameEventEditor.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="SO-Architecture" t="Include">
           <e p="Collections" t="Include">
             <e p="Editor" t="Include">

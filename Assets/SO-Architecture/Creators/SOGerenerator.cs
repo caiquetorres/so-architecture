@@ -103,6 +103,7 @@ namespace SOArchitecture
 
             if (GUILayout.Button("Create"))
             {
+                EditorUtility.SetDirty(this);
                 if (_className == string.Empty && _textAsset == null)
                     throw new Exception("You must write some name first");
                 
