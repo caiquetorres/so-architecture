@@ -43,6 +43,17 @@ namespace SOArchitecture
 
         public override void OnInspectorGUI()
         {
+            EditorGUI.BeginDisabledGroup(true);
+            {
+                EditorGUILayout.ObjectField(
+                    "Script:", 
+                    MonoScript.FromScriptableObject((ScriptableObject) target), serializedObject.GetType(), 
+                    false);
+            }
+            EditorGUI.EndDisabledGroup();
+            
+            GUILayout.Space(10);
+            
             serializedObject.Update();
 
             EditorGUILayout.HelpBox(HelpMessage, MessageType.Info);
