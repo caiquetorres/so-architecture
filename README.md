@@ -15,7 +15,7 @@ Cada uma das opções a seguir tem como objetivo criar os [ScriptableObjects](ht
 
 ![](https://i.imgur.com/yeAdQM1.png)
 
-O diretório em que os [ScriptableObjects](https://docs.unity3d.com/Manual/class-ScriptableObject.html) serão guardados é gerado altomaticamente, baseado no nome dado a eles no campo *Text file* ou *Text*. 
+O diretório em que os **ScriptableObjects** serão guardados é gerado altomaticamente, baseado no nome dado a eles no campo *Text file* ou *Text*. 
 
 Supondo que o desenvolvedor criou um [*enum*](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) chamado *Direction*, como demostrado abaixo:
 
@@ -56,7 +56,7 @@ Então, com tudo configurado, os **ScriptableObjects** já podem ser criados, cl
 
 O diretório que será criado possui o nome escrito no campo *Text* ou o nome do arquivo especificado no campo *Text File* seguido por "SO", que denota que naquele directorio os arquivos do tipo escolhido estão sendo guardados.
 
-![](https://i.imgur.com/aw9PjYZ.png)
+![](https://i.imgur.com/ESu4hDfl.png)
 
 Uma observação válida é que os **Editors** também são criados.
 
