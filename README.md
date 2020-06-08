@@ -99,3 +99,7 @@ private IntVariable playerHealth;
 ```
 
 ![](https://i.imgur.com/KsEEsR8.png)
+
+## Game Events
+
+Os *Game Events* são, resumidamente, eventos que podem ser chamados quando algo acontece no game, e o desenvolvedor deseja que outros **Scripts** respondam a esse evento.
