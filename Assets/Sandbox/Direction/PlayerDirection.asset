@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e9dfacbb938fb4e9440de6451958d8, type: 3}
+  m_Script: {fileID: 11500000, guid: e85f6e7caba6f49489483e9992173d3d, type: 3}
   m_Name: PlayerDirection
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 5a97bc2855013cb4ba95c7d8a30ae643, type: 2}
+  readOnly: 1
+  gameEvent: {fileID: 11400000, guid: 9d00221821fc6454d9badd72c2eec9eb, type: 2}
   value: 1

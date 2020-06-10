@@ -11,7 +11,7 @@ namespace SOArchitecture
         {
             CanEdit = false;
         }
-        
+
         public ShowVariableValue(bool canEdit)
         {
             CanEdit = canEdit;

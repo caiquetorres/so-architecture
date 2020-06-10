@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50cc146d0dc8bbd44a7ec756a42925cf, type: 3}
-  m_Name: OnChagedPlayerDirection
+  m_Script: {fileID: 11500000, guid: 9e222e5da881c1248adc2c61fd3f6d8e, type: 3}
+  m_Name: OnChangedPlayerDirection
   m_EditorClassIdentifier: 
   value: 0
   simulateValue: 0

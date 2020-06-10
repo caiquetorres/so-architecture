@@ -199,6 +199,28 @@ namespace SOArchitecture
                     "[CreateAssetMenu(menuName = ", '"', "SOArchitecture/Variables/", className, '"', ", fileName = ", '"', "New", className.ToTitle(), "Variable", '"', ")]"));
                 outfile.WriteLine(string.Concat("public class ", className.ToTitle(), "Variable : VariableBase<", className, ", ", className.ToTitle(), "GameEvent> { }"));
             }
+
+            var pathToEditor = string.Concat(pathToFile, "Editor/");
+            var editorFilePath = string.Concat(pathToEditor, className.ToTitle(), "VariableEditor.cs");
+            
+            if (!Directory.Exists(pathToEditor))
+                Directory.CreateDirectory(pathToEditor);
+            
+            if (!File.Exists(editorFilePath))
+                File.Create(editorFilePath).Dispose();
+            
+            using (var outfile = new StreamWriter(editorFilePath))
+            {
+                outfile.WriteLine("using UnityEditor;\nusing SOArchitecture;\n");
+                outfile.WriteLine(string.Concat(
+                    "[CanEditMultipleObjects, CustomEditor(typeof(", 
+                    className.ToTitle(), 
+                    "Variable))]"));
+                outfile.WriteLine(string.Concat(
+                    "public class ",
+                    className.ToTitle(), 
+                    "VariableEditor : VariableEditorBase { }"));
+            }
         }
         
         private void CreateGameEvent(string className, string path)
