@@ -16,7 +16,7 @@ namespace SOArchitecture
             {
                 if (readOnly)
                 {
-                    Debug.LogWarning("You are trying to set a Read-Only variable: " + this);
+                    Debug.LogError("You are trying to set a Read-Only variable: " + this);
                     return;
                 }
                 SetValue(value);
