@@ -10,18 +10,20 @@
         <e p="Sandbox" t="Include">
           <e p="Direction" t="Include">
             <e p="Direction.cs" t="Include" />
-            <e p="DirectionSO" t="Include">
-              <e p="DirectionCollection.cs" t="Include" />
-              <e p="DirectionGameEvent.cs" t="Include" />
-              <e p="DirectionGameEventListener.cs" t="Include" />
-              <e p="DirectionUnityEvent.cs" t="Include" />
-              <e p="DirectionVariable.cs" t="Include" />
-              <e p="Editor" t="Include">
-                <e p="DirectionCollectionEditor.cs" t="Include" />
-                <e p="DirectionGameEventEditor.cs" t="Include" />
-              </e>
+          </e>
+          <e p="DirectionSO" t="Include">
+            <e p="DirectionCollection.cs" t="Include" />
+            <e p="DirectionGameEvent.cs" t="Include" />
+            <e p="DirectionGameEventListener.cs" t="Include" />
+            <e p="DirectionUnityEvent.cs" t="Include" />
+            <e p="DirectionVariable.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="DirectionCollectionEditor.cs" t="Include" />
+              <e p="DirectionGameEventEditor.cs" t="Include" />
+              <e p="DirectionVariableEditor.cs" t="Include" />
             </e>
           </e>
+          <e p="Test.cs" t="Include" />
         </e>
         <e p="SO-Architecture" t="Include">
           <e p="Collections" t="Include">
@@ -31,9 +33,6 @@
             <e p="Scripts" t="Include">
               <e p="Collection.cs" t="Include" />
             </e>
-          </e>
-          <e p="Creators" t="Include">
-            <e p="SOGerenerator.cs" t="Include" />
           </e>
           <e p="GameEvents" t="Include">
             <e p="Editor" t="Include">
@@ -47,6 +46,9 @@
               <e p="GameEventBase.cs" t="Include" />
               <e p="GameEventListenerBase.cs" t="Include" />
             </e>
+          </e>
+          <e p="Generator" t="Include">
+            <e p="SOGerenerator.cs" t="Include" />
           </e>
           <e p="Types" t="Include">
             <e p="bool" t="Include">
@@ -159,6 +161,9 @@
           <e p="Variables" t="Include">
             <e p="Attributes" t="Include">
               <e p="ShowVariableValue.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="VariableEditorBase.cs" t="Include" />
             </e>
             <e p="Interfaces" t="Include">
               <e p="IVariable.cs" t="Include" />
