@@ -1,5 +1,5 @@
-﻿using PackageManager.Admin.Scripts;
-using UnityEditor;
+﻿using UnityEditor;
+using PackageManager.Admin.Scripts;
 using UnityEngine;
 
 namespace PackageManager.Admin.Editor
@@ -9,7 +9,7 @@ namespace PackageManager.Admin.Editor
     {
         private bool _showPackage = true;
 
-        private PackageManagerAdmin _admin;
+        private PackageManagerAdmin _packageManager;
 
         private SerializedProperty
             _usernameProperty,
@@ -22,15 +22,15 @@ namespace PackageManager.Admin.Editor
 
         private void OnEnable()
         {
-            _admin = (PackageManagerAdmin) target;
+            _packageManager = (PackageManagerAdmin) target;
 
-            _usernameProperty = serializedObject.FindProperty("_username");
-            _passwordProperty = serializedObject.FindProperty("_password");
+            _usernameProperty = serializedObject.FindProperty("username");
+            _passwordProperty = serializedObject.FindProperty("password");
 
-            _packageNameProperty = serializedObject.FindProperty("_name");
-            _packageVersionProperty = serializedObject.FindProperty("_version");
-            _packagePathProperty = serializedObject.FindProperty("_path");
-            _packageDescriptionProperty = serializedObject.FindProperty("_description");
+            _packageNameProperty = serializedObject.FindProperty("name");
+            _packageVersionProperty = serializedObject.FindProperty("version");
+            _packagePathProperty = serializedObject.FindProperty("path");
+            _packageDescriptionProperty = serializedObject.FindProperty("description");
         }
 
         public override void OnInspectorGUI()
@@ -39,14 +39,14 @@ namespace PackageManager.Admin.Editor
 
             EditorGUILayout.PropertyField(_usernameProperty);
             _passwordProperty.stringValue = EditorGUILayout.PasswordField("Password", _passwordProperty.stringValue);
-
+            
             GUILayout.Space(10);
             _showPackage = EditorGUILayout.Foldout(_showPackage, "Package");
             if (_showPackage)
             {
                 EditorGUILayout.PropertyField(_packageNameProperty);
                 EditorGUILayout.PropertyField(_packageVersionProperty);
-
+            
                 GUILayout.BeginHorizontal();
                 {
                     _packagePathProperty.stringValue =
@@ -63,20 +63,20 @@ namespace PackageManager.Admin.Editor
                     }
                 }
                 GUILayout.EndHorizontal();
-
+            
                 EditorGUILayout.PropertyField(_packageDescriptionProperty);
             }
-
+            
             serializedObject.ApplyModifiedProperties();
-
+            
             var buttonStyle = new GUIStyle(GUI.skin.button)
             {
                 fixedWidth = 100f
             };
-
+            
             if (GUILayout.Button("Create", buttonStyle))
             {
-                _admin.Create();
+                _packageManager.Create();
             }
         }
     }

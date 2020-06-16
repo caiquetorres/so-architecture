@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd32207475ec61d449605eac5823379b, type: 3}
   m_Name: PackageManager
   m_EditorClassIdentifier: 
-  _username: Caique
-  _password: caique123
-  _name: SOArchitecture
-  _version: 1.0.1
-  _path: C:/Users/caiqu/Documents/UnityProjects/system.so-architecture/Assets/Scenes
-  _description: This is a unity package
+  username: caique
+  password: teste
+  name: SOArchitecture
+  version: 1.0.1
+  path: C:/Users/caiqu/Documents/UnityProjects/system.so-architecture/Assets/SO-Architecture
+  description: Test

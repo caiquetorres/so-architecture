@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace PackageManager.Admin.Scripts
 {
@@ -15,7 +16,10 @@ namespace PackageManager.Admin.Scripts
 
         public void Create()
         {
-            
+            AssetDatabase.ExportPackage(
+                path, 
+                string.Concat(name, '@', version, ".unitypackage"),
+                ExportPackageOptions.IncludeLibraryAssets);
         }
     }
 }
