@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd32207475ec61d449605eac5823379b, type: 3}
   m_Name: PackageManager
   m_EditorClassIdentifier: 
-  username: caique
-  password: teste
+  url: http://192.168.1.107
+  port: 3000
+  username: CaiqueTorres
+  password: caique123
   name: Sandbox
   version: 1.0.0
   path: Assets/SO-Architecture
-  description: Test
+  description: This is a unity package for creating.

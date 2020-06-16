@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using PackageManager.Admin.Classes;
 using PackageManager.Client.Classes;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -40,7 +41,7 @@ namespace PackageManager.Client.Scripts
                 _webRequest.SetRequestHeader(ContentType, ContentTypeJson);
                 var json = JsonUtility.ToJson(
                     new RequestContentHandler(packages[i].name, packages[i].version));
-                Debug.Log(json);                
+
                 if (json == null)
                     return;
 

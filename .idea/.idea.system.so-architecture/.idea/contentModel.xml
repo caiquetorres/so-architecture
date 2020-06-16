@@ -9,6 +9,10 @@
       <e p="Assets" t="Include">
         <e p="PackageManager" t="Include">
           <e p="Admin" t="Include">
+            <e p="Classes" t="Include">
+              <e p="UserLoginRequestHandler.cs" t="Include" />
+              <e p="UserLoginResponseHandler.cs" t="Include" />
+            </e>
             <e p="Editor" t="Include">
               <e p="PackageManagerAdminEditor.cs" t="Include" />
             </e>
@@ -50,7 +54,7 @@
           </e>
           <e p="Test.cs" t="Include" />
         </e>
-        <e p="SO-Architecture" t="Include">
+        <e p="SOArchitecture" t="Include">
           <e p="Collections" t="Include">
             <e p="Editor" t="Include">
               <e p="CollectionEditorBase.cs" t="Include" />

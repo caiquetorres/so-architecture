@@ -12,6 +12,8 @@ namespace PackageManager.Admin.Editor
         private PackageManagerAdmin _packageManager;
 
         private SerializedProperty
+            _urlProperty,
+            _portProperty,
             _usernameProperty,
             _passwordProperty,
             _packageNameProperty,
@@ -23,6 +25,9 @@ namespace PackageManager.Admin.Editor
         private void OnEnable()
         {
             _packageManager = (PackageManagerAdmin) target;
+
+            _urlProperty = serializedObject.FindProperty("url");
+            _portProperty = serializedObject.FindProperty("port");
 
             _usernameProperty = serializedObject.FindProperty("username");
             _passwordProperty = serializedObject.FindProperty("password");
@@ -36,7 +41,11 @@ namespace PackageManager.Admin.Editor
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-
+            
+            EditorGUILayout.PropertyField(_urlProperty);
+            EditorGUILayout.PropertyField(_portProperty);
+            
+            GUILayout.Space(10);
             EditorGUILayout.PropertyField(_usernameProperty);
             _passwordProperty.stringValue = EditorGUILayout.PasswordField("Password", _passwordProperty.stringValue);
             
@@ -77,7 +86,7 @@ namespace PackageManager.Admin.Editor
             
             if (GUILayout.Button("Create", buttonStyle))
             {
-                _packageManager.Create();
+                _packageManager.Perform();
             }
         }
     }
