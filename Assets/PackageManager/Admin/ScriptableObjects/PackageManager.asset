@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: caique
   password: teste
-  name: SOArchitecture
-  version: 1.0.1
-  path: C:/Users/caiqu/Documents/UnityProjects/system.so-architecture/Assets/SO-Architecture
+  name: Sandbox
+  version: 1.0.0
+  path: Assets/SO-Architecture
   description: Test

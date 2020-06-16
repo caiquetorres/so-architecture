@@ -59,6 +59,7 @@ namespace PackageManager.Admin.Editor
                                 "Select folder",
                                 Application.dataPath,
                                 string.Empty);
+                        _packagePathProperty.stringValue = _packagePathProperty.stringValue.Replace(Application.dataPath, "Assets");
                         GUI.FocusControl(null);
                     }
                 }

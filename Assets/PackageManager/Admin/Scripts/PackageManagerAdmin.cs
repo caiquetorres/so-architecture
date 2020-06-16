@@ -18,8 +18,9 @@ namespace PackageManager.Admin.Scripts
         {
             AssetDatabase.ExportPackage(
                 path, 
-                string.Concat(name, '@', version, ".unitypackage"),
-                ExportPackageOptions.IncludeLibraryAssets);
+                string.Concat("Assets/", name, '@', version, ".unitypackage"),  
+                ExportPackageOptions.IncludeDependencies | ExportPackageOptions.Recurse);
+            AssetDatabase.Refresh();
         }
     }
 }
