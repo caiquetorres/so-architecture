@@ -87,8 +87,8 @@ namespace PackageManager.Admin.Scripts
 
             var webRequest = UnityWebRequest.Post(string.Concat(url, ':', port, "/unityPackage"), formData);
 
-            webRequest.SetRequestHeader("Authorization", token);
-            webRequest.SetRequestHeader(ContentType, ContentTypeMultipart);
+            // webRequest.SetRequestHeader("Authorization", token);
+            // webRequest.SetRequestHeader(ContentType, ContentTypeMultipart);
             
             webRequest.SendWebRequest();
         }

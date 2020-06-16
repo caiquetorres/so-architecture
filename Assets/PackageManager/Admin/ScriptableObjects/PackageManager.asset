@@ -16,7 +16,7 @@ MonoBehaviour:
   port: 3000
   username: CaiqueTorres
   password: caique123
-  name: Sandbox
-  version: 1.0.0
+  name: SOArchitecture
+  version: 1.0.2
   path: Assets/SOArchitecture
   description: This is a unity package for creating.
