@@ -5,6 +5,6 @@ namespace Game.Tests
 {
     public class Test : MonoBehaviour
     {
-        [ShowVariableValue(true), SerializeField] private DirectionVariable direction;
+        [ShowVariableValue(true), SerializeField] private DirectionVariable _direction;
     }
 }
