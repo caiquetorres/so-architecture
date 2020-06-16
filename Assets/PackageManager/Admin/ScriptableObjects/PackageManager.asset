@@ -18,5 +18,5 @@ MonoBehaviour:
   password: caique123
   name: Sandbox
   version: 1.0.0
-  path: Assets/SO-Architecture
+  path: Assets/SOArchitecture
   description: This is a unity package for creating.

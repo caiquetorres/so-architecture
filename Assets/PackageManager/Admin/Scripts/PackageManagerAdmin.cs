@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PackageManager.Admin.Classes;
 using UnityEditor;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace PackageManager.Admin.Scripts
 
         private const string PackageFormat = ".unitypackage";
         private const string ContentTypeJson = "application/json";
+        private const string ContentTypeMultipart = "multipart/form-data";
 
         private string _fileName;
 
@@ -27,12 +29,24 @@ namespace PackageManager.Admin.Scripts
         [SerializeField] private string path;
         [Multiline, SerializeField] private string description;
 
-        public void Perform()
+        public void Create()
         {
-            Login();
+            Login(handler =>
+            {
+                switch (handler.state)
+                {
+                    case "failure":
+                        throw new Exception("Username or password incorrect");
+                    case "error":
+                        throw new Exception("error");
+                    default:
+                        CreatePackage(handler.token);
+                        break;
+                }
+            });
         }
 
-        private void Login()
+        private void Login(Action<UserLoginResponseHandler> callback)
         {
             var webRequest = new UnityWebRequest(string.Concat(url, ':', port, "/users/login/"), "POST");
             webRequest.SetRequestHeader(ContentType, ContentTypeJson);
@@ -51,12 +65,11 @@ namespace PackageManager.Admin.Scripts
             var request = webRequest.SendWebRequest();
             request.completed += delegate
             {
-                var x = JsonUtility.FromJson<UserLoginResponseHandler>(webRequest.downloadHandler.text);
-                Debug.Log(x.state);
+                callback(JsonUtility.FromJson<UserLoginResponseHandler>(webRequest.downloadHandler.text));
             };
         }
 
-        public void CreatePackage()
+        public void CreatePackage(string token)
         {
             _fileName = string.Concat("Assets/", name, '@', version, PackageFormat);
             AssetDatabase.ExportPackage(
@@ -71,6 +84,13 @@ namespace PackageManager.Admin.Scripts
                 new MultipartFormDataSection("file", _fileName),
                 new MultipartFormDataSection(string.Concat("description=", description))
             };
+
+            var webRequest = UnityWebRequest.Post(string.Concat(url, ':', port, "/unityPackage"), formData);
+
+            webRequest.SetRequestHeader("Authorization", token);
+            webRequest.SetRequestHeader(ContentType, ContentTypeMultipart);
+            
+            webRequest.SendWebRequest();
         }
     }
 }

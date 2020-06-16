@@ -86,7 +86,7 @@ namespace PackageManager.Admin.Editor
             
             if (GUILayout.Button("Create", buttonStyle))
             {
-                _packageManager.Perform();
+                _packageManager.Create();
             }
         }
     }
