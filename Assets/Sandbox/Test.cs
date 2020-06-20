@@ -1,10 +1,12 @@
-﻿using SOArchitecture;
+﻿using Malee.List;
 using UnityEngine;
 
 namespace Game.Tests
 {
     public class Test : MonoBehaviour
     {
-        [ShowVariableValue(true), SerializeField] private DirectionVariable _direction;
+        [Reorderable, SerializeField] private IntReordableList listTest;
     }
+    
+    [System.Serializable] public class IntReordableList : ReorderableArray<int> { }
 }
