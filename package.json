@@ -1,0 +1,15 @@
+{
+    "name": "soarchitecture",
+    "displayName": "SOArchitecture",
+    "version": "1.0.0",
+    "unity": "2019.3",
+    "description": "A package to create and organize games",
+    "keywords": [
+        "events",
+        "organization"
+    ],
+    "category": "games",
+    "dependencies": {
+        
+    }
+}
