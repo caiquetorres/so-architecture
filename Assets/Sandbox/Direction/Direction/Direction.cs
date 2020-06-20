@@ -1,5 +1,8 @@
-﻿public enum Direction
+﻿namespace Game
 {
-    Right = 1,
-    Left = -1
+    public enum Direction
+    {
+        Right = 1,
+        Left = -1
+    }
 }
