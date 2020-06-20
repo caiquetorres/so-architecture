@@ -7,71 +7,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="PackageManager" t="Include">
-          <e p="Admin" t="Include">
-            <e p="Classes" t="Include">
-              <e p="UserLoginRequestHandler.cs" t="Include" />
-              <e p="UserLoginResponseHandler.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="PackageManagerAdminEditor.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="PackageManagerAdmin.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Client" t="Include">
-            <e p="Classes" t="Include">
-              <e p="RequestContentHandler.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="PackageInfoEditor.cs" t="Include" />
-              <e p="PackageManagerClientEditor.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="PackageInfo.cs" t="Include" />
-              <e p="PackageManagerClient.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Samples" t="Include">
-          <e p="Reorderable List" t="Include">
-            <e p="1.0.1" t="Include">
-              <e p="Examples" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="ExampleEditor.cs" t="Include" />
-                  <e p="GameObjectEditor.cs" t="Include" />
-                  <e p="NameOverrideEditor.cs" t="Include" />
-                  <e p="NestedChildDrawer.cs" t="Include" />
-                  <e p="SurrogateTestEditor.cs" t="Include" />
-                </e>
-                <e p="Runtime" t="Include">
-                  <e p="Example.cs" t="Include" />
-                  <e p="GameObjectExample.cs" t="Include" />
-                  <e p="NameOverride.cs" t="Include" />
-                  <e p="NestedExample.cs" t="Include" />
-                  <e p="RecursionTest.cs" t="Include" />
-                  <e p="ScriptableObjectExample.cs" t="Include" />
-                  <e p="SurrogateTest.cs" t="Include" />
-                </e>
-              </e>
-            </e>
-          </e>
-          <e p="Toolbar Extender" t="Include">
-            <e p="1.2.0" t="Include">
-              <e p="Scene switcher buttons" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="SceneSwitcher.cs" t="Include" />
-                </e>
-              </e>
-              <e p="Scene view focuser" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="SceneViewFocuser.cs" t="Include" />
-                </e>
-              </e>
-            </e>
-          </e>
-        </e>
         <e p="Sandbox" t="Include">
           <e p="Direction" t="Include">
             <e p="Direction" t="Include">
@@ -90,7 +25,6 @@
               </e>
             </e>
           </e>
-          <e p="Test.cs" t="Include" />
         </e>
         <e p="SOArchitecture" t="Include">
           <e p="Collections" t="Include">
@@ -99,6 +33,14 @@
             </e>
             <e p="Scripts" t="Include">
               <e p="Collection.cs" t="Include" />
+            </e>
+          </e>
+          <e p="FolderStructure" t="Include">
+            <e p="Editor" t="Include">
+              <e p="FolderStructureEditor.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="FolderStructure.cs" t="Include" />
             </e>
           </e>
           <e p="GameEvents" t="Include">
