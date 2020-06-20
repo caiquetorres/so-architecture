@@ -30,7 +30,7 @@ namespace SOArchitecture
 
         #region Folder creation
         
-        [MenuItem("Assets/Create/Generate Base Folders")]
+        [MenuItem("Assets/Create/Create Base Folders")]
         public static void CreateBaseFolders()
         {
             for (var i = _instance.baseFolders.Length - 1; i >= 0; i--)
@@ -44,7 +44,7 @@ namespace SOArchitecture
             }
         }
 
-        [MenuItem("Assets/Create/Generate Entity Folders")]
+        [MenuItem("Assets/Create/Create Entity Folders")]
         public static void CreateEntityFolders()
         {
             var folderPath = AssetDatabase.GetAssetPath(Selection.activeObject);
