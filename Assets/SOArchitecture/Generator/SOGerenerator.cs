@@ -34,9 +34,9 @@ namespace SOArchitecture
             "UnityEngine"
         };
         
-        [MenuItem("Window/SO Generator")] public static void ShowWindow()
+        [MenuItem("Window/SOGenerator")] public static void ShowWindow()
         {
-            var window = GetWindow<SOGerenerator>("SO Generator");
+            var window = GetWindow<SOGerenerator>("SOGenerator");
             window.minSize = new Vector2(406f, 250f);
         }
 
@@ -101,31 +101,32 @@ namespace SOArchitecture
             }
             EditorGUILayout.EndHorizontal();
 
-            if (GUILayout.Button("Create"))
-            {
-                EditorUtility.SetDirty(this);
-                if (_className == string.Empty && _textAsset == null)
-                    throw new Exception("You must write some name first");
+            if (!GUILayout.Button("Create")) 
+                return;
+            
+            EditorUtility.SetDirty(this);
+            if (_className == string.Empty && _textAsset == null)
+                throw new Exception("You must write some name first");
                 
-                if (!Directory.Exists(_filePath) || _filePath == string.Empty)
-                    throw new Exception("The path does not exist or is null");
+            if (!Directory.Exists(_filePath) || _filePath == string.Empty)
+                throw new Exception("The path does not exist or is null");
 
-                if (_collection)
-                {
-                    CreateCollection(_className, _filePath);
-                }
-                
-                if (_variable)
-                {
-                    CreateGameEvent(_className, _filePath);
-                    CreateVariable(_className, _filePath);
-                }
-                else if (_gameEvent)
-                {
-                    CreateGameEvent(_className, _filePath);
-                }
-                AssetDatabase.Refresh();
+            if (_collection)
+            {
+                CreateCollection(_className, _filePath);
             }
+                
+            if (_variable)
+            {
+                CreateGameEvent(_className, _filePath);
+                CreateVariable(_className, _filePath);
+            }
+            else if (_gameEvent)
+            {
+                CreateGameEvent(_className, _filePath);
+            }
+            
+            AssetDatabase.Refresh();
         }
 
         private void CreateCollection(string className, string path)
@@ -300,10 +301,8 @@ namespace SOArchitecture
     
     public static class StringExtender
     {
-        public static string ToTitle(this string value)
-        {
-            return string.Concat(value[0].ToString().ToUpper(), value.Substring(1, value.Length - 1));
-        }
+        public static string ToTitle(this string value) =>
+            string.Concat(value[0].ToString().ToUpper(), value.Substring(1, value.Length - 1));
     }
 }
 
