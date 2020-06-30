@@ -58,6 +58,8 @@ namespace SOArchitecture
 
         private void OnGUI()
         {
+            _serializedObject.Update();
+            
             _collection = GUILayout.Toggle(_collection, "Collection");
             _variable = GUILayout.Toggle(_variable, "Variable");
 
@@ -101,6 +103,8 @@ namespace SOArchitecture
             }
             EditorGUILayout.EndHorizontal();
 
+            _serializedObject.ApplyModifiedProperties();
+            
             if (!GUILayout.Button("Create")) 
                 return;
             
