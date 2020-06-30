@@ -1,20 +1,28 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SOArchitecture
 {
     public abstract class VariableBase<TValue, TGameEvent> : ScriptableObject, IVariable<TValue>
         where TGameEvent : IGameEvent<TValue>
     {
-        [SerializeField] protected bool readOnly;
+        // delete in the next release '[FormerlySerializedAs("readOnly")]'
+        [FormerlySerializedAs("readOnly")] [SerializeField] protected bool isReadOnly; 
         [SerializeField] protected TGameEvent gameEvent;
         [SerializeField] protected TValue value;
+
+        public bool IsReadOnly
+        {
+            get => isReadOnly;
+            protected set => isReadOnly = value;
+        }
 
         public TValue Value
         {
             get => value;
             set
             {
-                if (readOnly)
+                if (IsReadOnly)
                 {
                     Debug.LogError("You are trying to set a Read-Only variable: " + this);
                     return;
