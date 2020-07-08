@@ -7,9 +7,13 @@ namespace SOArchitecture
         where TGameEvent : IGameEvent<TValue>
     {
         // delete in the next release '[FormerlySerializedAs("readOnly")]'
-        [FormerlySerializedAs("readOnly")] [SerializeField] protected bool isReadOnly; 
+        [SerializeField] protected bool isReadOnly; 
         [SerializeField] protected TGameEvent gameEvent;
         [SerializeField] protected TValue value;
+        
+#if UNITY_EDITOR
+        [Multiline, SerializeField] private string description;
+#endif
 
         public bool IsReadOnly
         {

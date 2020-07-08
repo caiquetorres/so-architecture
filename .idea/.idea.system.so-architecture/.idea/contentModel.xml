@@ -7,6 +7,9 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Sandbox" t="Include">
+          <e p="Player.cs" t="Include" />
+        </e>
         <e p="SOArchitecture" t="Include">
           <e p="Collections" t="Include">
             <e p="Editor" t="Include">
@@ -40,6 +43,11 @@
           <e p="Generator" t="Include">
             <e p="SOGerenerator.cs" t="Include" />
           </e>
+          <e p="Helpers" t="Include">
+            <e p="Editor" t="Include">
+              <e p="SOArchitectureEditorHelpers.cs" t="Include" />
+            </e>
+          </e>
           <e p="Types" t="Include">
             <e p="bool" t="Include">
               <e p="BoolCollection.cs" t="Include" />
@@ -50,6 +58,7 @@
               <e p="Editor" t="Include">
                 <e p="BoolCollectionEditor.cs" t="Include" />
                 <e p="BoolGameEventEditor.cs" t="Include" />
+                <e p="BoolVariableEditor.cs" t="Include" />
               </e>
             </e>
             <e p="char" t="Include">
@@ -61,12 +70,14 @@
               <e p="Editor" t="Include">
                 <e p="CharCollectionEditor.cs" t="Include" />
                 <e p="CharGameEventEditor.cs" t="Include" />
+                <e p="CharVariableEditor.cs" t="Include" />
               </e>
             </e>
             <e p="float" t="Include">
               <e p="Editor" t="Include">
                 <e p="FloatCollectionEditor.cs" t="Include" />
                 <e p="FloatGameEventEditor.cs" t="Include" />
+                <e p="FloatVariableEditor.cs" t="Include" />
               </e>
               <e p="FloatCollection.cs" t="Include" />
               <e p="floatGameEvent.cs" t="Include" />
@@ -78,6 +89,7 @@
               <e p="Editor" t="Include">
                 <e p="GameObjectCollectionEditor.cs" t="Include" />
                 <e p="GameObjectGameEventEditor.cs" t="Include" />
+                <e p="GameObjectVariableEditor.cs" t="Include" />
               </e>
               <e p="GameObjectCollection.cs" t="Include" />
               <e p="GameObjectGameEvent.cs" t="Include" />
@@ -89,6 +101,7 @@
               <e p="Editor" t="Include">
                 <e p="IntCollectionEditor.cs" t="Include" />
                 <e p="IntGameEventEditor.cs" t="Include" />
+                <e p="IntVariableEditor.cs" t="Include" />
               </e>
               <e p="IntCollection.cs" t="Include" />
               <e p="IntGameEvent.cs" t="Include" />
@@ -100,6 +113,7 @@
               <e p="Editor" t="Include">
                 <e p="StringCollectionEditor.cs" t="Include" />
                 <e p="StringGameEventEditor.cs" t="Include" />
+                <e p="StringVariableEditor.cs" t="Include" />
               </e>
               <e p="StringCollection.cs" t="Include" />
               <e p="stringGameEvent.cs" t="Include" />
@@ -111,6 +125,7 @@
               <e p="Editor" t="Include">
                 <e p="TransformCollectionEditor.cs" t="Include" />
                 <e p="TransformGameEventEditor.cs" t="Include" />
+                <e p="TransformVariableEditor.cs" t="Include" />
               </e>
               <e p="TransformCollection.cs" t="Include" />
               <e p="TransformGameEvent.cs" t="Include" />
@@ -122,6 +137,7 @@
               <e p="Editor" t="Include">
                 <e p="Vector2CollectionEditor.cs" t="Include" />
                 <e p="Vector2GameEventEditor.cs" t="Include" />
+                <e p="Vector2VariableEditor.cs" t="Include" />
               </e>
               <e p="Vector2Collection.cs" t="Include" />
               <e p="Vector2GameEvent.cs" t="Include" />
@@ -133,6 +149,7 @@
               <e p="Editor" t="Include">
                 <e p="Vector3CollectionEditor.cs" t="Include" />
                 <e p="Vector3GameEventEditor.cs" t="Include" />
+                <e p="Vector3VariableEditor.cs" t="Include" />
               </e>
               <e p="Vector3Collection.cs" t="Include" />
               <e p="Vector3GameEvent.cs" t="Include" />

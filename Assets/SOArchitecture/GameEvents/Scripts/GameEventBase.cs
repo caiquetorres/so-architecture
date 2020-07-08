@@ -7,6 +7,10 @@ namespace SOArchitecture
     {
         private readonly List<IGameEventListener> _listeners = new List<IGameEventListener>();
         
+#if UNITY_EDITOR
+        [Multiline, SerializeField] private string description;
+#endif
+        
         public void Raise()
         {
             for (var i = _listeners.Count - 1; i >= 0; i--)
@@ -33,6 +37,10 @@ namespace SOArchitecture
         public T simulateValue;
 #endif
         private readonly List<IGameEventListener<T>> _listeners = new List<IGameEventListener<T>>();
+        
+#if UNITY_EDITOR
+        [Multiline, SerializeField] private string description;
+#endif
         
         public virtual void Raise(T value)
         {
