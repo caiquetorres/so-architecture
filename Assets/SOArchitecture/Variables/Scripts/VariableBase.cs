@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SOArchitecture
 {
     public abstract class VariableBase<TValue, TGameEvent> : ScriptableObject, IVariable<TValue>
         where TGameEvent : IGameEvent<TValue>
     {
-        // delete in the next release '[FormerlySerializedAs("readOnly")]'
         [SerializeField] protected bool isReadOnly; 
         [SerializeField] protected TGameEvent gameEvent;
         [SerializeField] protected TValue value;
@@ -42,9 +40,8 @@ namespace SOArchitecture
                 gameEvent.Raise(value);
         }
 
-        public static implicit operator TValue(VariableBase<TValue, TGameEvent> variable)
-        {
-            return variable.value;
-        }
+        public override string ToString() => value.ToString();
+        
+        public static implicit operator TValue(VariableBase<TValue, TGameEvent> variable) => variable.value;
     }
 }
