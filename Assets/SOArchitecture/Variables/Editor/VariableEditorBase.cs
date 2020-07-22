@@ -5,6 +5,11 @@ namespace SOArchitecture
 {
     public abstract class VariableEditorBase : Editor
     {
+        private const string ValueProperty = "value";
+        private const string IsReadOnlyProperty = "isReadOnly";
+        private const string GameEventProperty = "gameEvent";
+        private const string DescriptionProperty = "description"; 
+        
         private bool _isShowingDescription;
         
         private SerializedProperty _valueProperty;
@@ -14,10 +19,10 @@ namespace SOArchitecture
         
         private void OnEnable()
         {
-            _valueProperty = serializedObject.FindProperty("value");
-            _readOnlyProperty = serializedObject.FindProperty("isReadOnly");
-            _gameEventProperty = serializedObject.FindProperty("gameEvent");
-            _descriptionProperty = serializedObject.FindProperty("description");
+            _valueProperty = serializedObject.FindProperty(ValueProperty);
+            _readOnlyProperty = serializedObject.FindProperty(IsReadOnlyProperty);
+            _gameEventProperty = serializedObject.FindProperty(GameEventProperty);
+            _descriptionProperty = serializedObject.FindProperty(DescriptionProperty);
         }
 
         public override void OnInspectorGUI()

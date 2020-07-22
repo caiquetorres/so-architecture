@@ -8,7 +8,7 @@ namespace SOArchitecture
         private readonly List<IGameEventListener> _listeners = new List<IGameEventListener>();
         
 #if UNITY_EDITOR
-        [Multiline, SerializeField] private string description;
+        [TextArea(3, 10), SerializeField] private string description;
 #endif
         
         public void Raise()
@@ -39,7 +39,7 @@ namespace SOArchitecture
         private readonly List<IGameEventListener<T>> _listeners = new List<IGameEventListener<T>>();
         
 #if UNITY_EDITOR
-        [Multiline, SerializeField] private string description;
+        [TextArea(3, 10), SerializeField] private string description;
 #endif
         
         public virtual void Raise(T value)

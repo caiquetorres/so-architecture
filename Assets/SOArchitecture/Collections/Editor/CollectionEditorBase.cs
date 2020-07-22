@@ -10,23 +10,28 @@ namespace SOArchitecture
         
         private const string ItemsProperty = "items";
         private const string ArraySizeProperty = "Array.size";
+        private const string DescriptionProperty = "description";
         private const string OnChangedCollectionGameEventProperty = "onChangedCollection";
-        
+
         protected abstract string Name { get; }
+        
+        private bool _isShowingDescription; 
 
         private SerializedProperty _size;
         
         private SerializedProperty _items;
-        private SerializedProperty _gameEvent;
         private SerializedProperty _element;
+        private SerializedProperty _gameEvent;
+        private SerializedProperty _descriptionProperty;
         
         private ReorderableList _reorderableList;
 
         private void OnEnable()
         {
-            _gameEvent = serializedObject.FindProperty(OnChangedCollectionGameEventProperty);
             _items = serializedObject.FindProperty(ItemsProperty);
             _size = _items.FindPropertyRelative(ArraySizeProperty);
+            _descriptionProperty = serializedObject.FindProperty(DescriptionProperty);
+            _gameEvent = serializedObject.FindProperty(OnChangedCollectionGameEventProperty);
 
             _reorderableList = new ReorderableList(
                 serializedObject, _items, true, true, true, true)
@@ -62,6 +67,10 @@ namespace SOArchitecture
             EditorGUILayout.PropertyField(_size);
 
             _reorderableList.DoLayoutList();
+            
+            GUILayout.Space(10);
+            SOArchitectureEditorHelpers.DrawDescription(_descriptionProperty, ref _isShowingDescription);
+            
             serializedObject.ApplyModifiedProperties();
         }
     }

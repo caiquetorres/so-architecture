@@ -10,7 +10,7 @@ namespace SOArchitecture
         [SerializeField] protected TValue value;
         
 #if UNITY_EDITOR
-        [Multiline, SerializeField] private string description;
+        [TextArea(3, 10), SerializeField] private string description;
 #endif
 
         public bool IsReadOnly

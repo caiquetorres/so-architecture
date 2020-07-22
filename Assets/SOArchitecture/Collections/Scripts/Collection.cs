@@ -9,6 +9,10 @@ namespace SOArchitecture
         [SerializeField] protected VoidGameEvent onChangedCollection;
         [SerializeField] protected List<TValue> items;
         
+#if UNITY_EDITOR
+        [TextArea(3, 10), SerializeField] private string description;
+#endif
+        
         public TValue this[int index]
         {
             get => items[index];
