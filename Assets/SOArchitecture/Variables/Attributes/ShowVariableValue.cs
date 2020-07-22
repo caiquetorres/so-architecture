@@ -7,15 +7,9 @@ namespace SOArchitecture
     {
         public readonly bool CanEdit;
 
-        public ShowVariableValue()
-        {
-            CanEdit = false;
-        }
+        public ShowVariableValue() => CanEdit = false;
 
-        public ShowVariableValue(bool canEdit)
-        {
-            CanEdit = canEdit;
-        }
+        public ShowVariableValue(bool canEdit) => CanEdit = canEdit;
     }
     
 #if UNITY_EDITOR
@@ -42,9 +36,9 @@ namespace SOArchitecture
             
             var rectValue = new Rect()
             {
-                x = (position.x + _lastWidth * 0.8f + Padding),
+                x = position.x + _lastWidth * 0.8f + Padding,
                 y = position.y,
-                width = (_lastWidth * 0.2f - Padding),
+                width = _lastWidth * 0.2f - Padding,
                 height = EditorGUIUtility.singleLineHeight,
             };
             
