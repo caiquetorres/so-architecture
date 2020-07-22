@@ -8,17 +8,17 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scenes" t="Include">
-          <e p="IntSO" t="Include">
+          <e p="TransformSO" t="Include">
             <e p="Editor" t="Include">
-              <e p="IntCollectionEditor.cs" t="Include" />
-              <e p="IntGameEventEditor.cs" t="Include" />
-              <e p="IntVariableEditor.cs" t="Include" />
+              <e p="TransformCollectionEditor.cs" t="Include" />
+              <e p="TransformGameEventEditor.cs" t="Include" />
+              <e p="TransformVariableEditor.cs" t="Include" />
             </e>
-            <e p="IntCollection.cs" t="Include" />
-            <e p="IntGameEvent.cs" t="Include" />
-            <e p="IntGameEventListener.cs" t="Include" />
-            <e p="IntUnityEvent.cs" t="Include" />
-            <e p="IntVariable.cs" t="Include" />
+            <e p="TransformCollection.cs" t="Include" />
+            <e p="TransformGameEvent.cs" t="Include" />
+            <e p="TransformGameEventListener.cs" t="Include" />
+            <e p="TransformUnityEvent.cs" t="Include" />
+            <e p="TransformVariable.cs" t="Include" />
           </e>
         </e>
         <e p="SOArchitecture" t="Include">

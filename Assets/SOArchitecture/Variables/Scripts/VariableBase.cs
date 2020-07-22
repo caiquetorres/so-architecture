@@ -11,24 +11,30 @@ namespace SOArchitecture
         
 #if UNITY_EDITOR
         [TextArea(3, 10), SerializeField] private string description;
-#endif
 
+        public bool log;
+        
         public bool IsReadOnly
         {
             get => isReadOnly;
             protected set => isReadOnly = value;
         }
+#endif
 
         public TValue Value
         {
             get => value;
             set
             {
+#if UNITY_EDITOR
                 if (IsReadOnly)
                 {
-                    Debug.LogError("You are trying to set a Read-Only variable: " + this);
+                    if (log)
+                        Debug.LogError("You are trying to set a Read-Only variable: " + this);
+                    
                     return;
                 }
+#endif
                 SetValue(value);
             }
         }
