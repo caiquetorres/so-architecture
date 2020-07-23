@@ -16,6 +16,10 @@
               <e p="ExtendedScriptableObject.cs" t="Include" />
             </e>
           </e>
+          <e p="Test" t="Include">
+            <e p="ScriptableObjectTest.cs" t="Include" />
+            <e p="Test.cs" t="Include" />
+          </e>
         </e>
         <e p="SOArchitecture" t="Include">
           <e p="Collections" t="Include">
