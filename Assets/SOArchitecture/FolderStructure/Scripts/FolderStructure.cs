@@ -43,7 +43,7 @@ namespace SOArchitecture
             "Scripts",
         };
 
-        #region Instanciate new FolderStructure
+        #region Asset creation
         
         private static FolderStructure GetInstance()
         {
