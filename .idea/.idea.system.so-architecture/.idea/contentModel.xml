@@ -8,31 +8,20 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Sandbox" t="Include">
-          <e p="Direction" t="Include">
-            <e p="Direction.cs" t="Include" />
-            <e p="DirectionSO" t="Include">
-              <e p="DirectionCollection.cs" t="Include" />
-              <e p="DirectionGameEvent.cs" t="Include" />
-              <e p="DirectionGameEventListener.cs" t="Include" />
-              <e p="DirectionUnityEvent.cs" t="Include" />
-              <e p="DirectionVariable.cs" t="Include" />
-              <e p="Editor" t="Include">
-                <e p="DirectionCollectionEditor.cs" t="Include" />
-                <e p="DirectionGameEventEditor.cs" t="Include" />
-                <e p="DirectionVariableEditor.cs" t="Include" />
-              </e>
+          <e p="IntSO" t="Include">
+            <e p="Editor" t="Include">
+              <e p="IntCollectionEditor.cs" t="Include" />
+              <e p="IntGameEventEditor.cs" t="Include" />
+              <e p="IntVariableEditor.cs" t="Include" />
             </e>
-          </e>
-          <e p="ExtendedScriptableObject" t="Include">
-            <e p="Base" t="Include">
-              <e p="ExtendedScriptableObject.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="ExtendedScriptableObject.cs" t="Include" />
-            </e>
+            <e p="IntCollection.cs" t="Include" />
+            <e p="IntGameEvent.cs" t="Include" />
+            <e p="IntGameEventListener.cs" t="Include" />
+            <e p="IntUnityEvent.cs" t="Include" />
+            <e p="IntVariable.cs" t="Include" />
           </e>
           <e p="Test" t="Include">
-            <e p="ScriptableObjectTest.cs" t="Include" />
+            <e p="PlayerInfo.cs" t="Include" />
             <e p="Test.cs" t="Include" />
           </e>
         </e>
@@ -71,7 +60,9 @@
           </e>
           <e p="Helpers" t="Include">
             <e p="Attributes" t="Include">
+              <e p="ExtendedScriptableObjectAttribute.cs" t="Include" />
               <e p="ReadOnlyAttribute.cs" t="Include" />
+              <e p="ShowVariableValue.cs" t="Include" />
             </e>
             <e p="Classes" t="Include">
               <e p="SOArchitectureHelpers.cs" t="Include" />
@@ -98,9 +89,6 @@
             </e>
           </e>
           <e p="Variables" t="Include">
-            <e p="Attributes" t="Include">
-              <e p="ShowVariableValue.cs" t="Include" />
-            </e>
             <e p="Editor" t="Include">
               <e p="VariableEditorBase.cs" t="Include" />
             </e>
