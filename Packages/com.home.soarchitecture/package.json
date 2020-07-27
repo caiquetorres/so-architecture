@@ -1,0 +1,17 @@
+{
+  "name": "com.home.soarchitecture",
+  "version": "1.1.7",
+  "displayName": "SOArchitecture",
+  "description": "This is an example package",
+  "unity": "2018.1",
+  "unityRelease": "0b5",
+  "keywords": [
+    "ScriptableObject"
+  ],
+  "author": {
+    "name": "CaiqueTorres",
+    "email": "caiquetorres.bastos@hotmail.com"
+  },
+  "type": "library",
+  "hideInEditor": true
+}

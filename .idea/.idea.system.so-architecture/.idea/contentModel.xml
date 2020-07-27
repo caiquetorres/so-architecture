@@ -4,101 +4,10 @@
     <e p="C:\Users\caiqu\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\caiqu\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_system.so-architecture.-1178032097.00" t="ExcludeRecursive" />
     <e p="C:\Users\caiqu\Documents\UnityProjects\system.so-architecture" t="IncludeRecursive">
-      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Sandbox" t="Include">
-          <e p="IntSO" t="Include">
-            <e p="Editor" t="Include">
-              <e p="IntCollectionEditor.cs" t="Include" />
-              <e p="IntGameEventEditor.cs" t="Include" />
-              <e p="IntVariableEditor.cs" t="Include" />
-            </e>
-            <e p="IntCollection.cs" t="Include" />
-            <e p="IntGameEvent.cs" t="Include" />
-            <e p="IntGameEventListener.cs" t="Include" />
-            <e p="IntUnityEvent.cs" t="Include" />
-            <e p="IntVariable.cs" t="Include" />
-          </e>
-          <e p="Test" t="Include">
-            <e p="PlayerInfo.cs" t="Include" />
-            <e p="Test.cs" t="Include" />
-          </e>
-        </e>
-        <e p="SOArchitecture" t="Include">
-          <e p="Collections" t="Include">
-            <e p="Editor" t="Include">
-              <e p="CollectionEditorBase.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="Collection.cs" t="Include" />
-            </e>
-          </e>
-          <e p="FolderStructure" t="Include">
-            <e p="Editor" t="Include">
-              <e p="FolderStructureEditor.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="FolderStructure.cs" t="Include" />
-            </e>
-          </e>
-          <e p="GameEvents" t="Include">
-            <e p="Editor" t="Include">
-              <e p="GameEventEditorBase.cs" t="Include" />
-            </e>
-            <e p="Interfaces" t="Include">
-              <e p="IGameEvent.cs" t="Include" />
-              <e p="IGameEventListener.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="GameEventBase.cs" t="Include" />
-              <e p="GameEventListenerBase.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Generator" t="Include">
-            <e p="SOGerenerator.cs" t="Include" />
-          </e>
-          <e p="Helpers" t="Include">
-            <e p="Attributes" t="Include">
-              <e p="ExtendedScriptableObjectAttribute.cs" t="Include" />
-              <e p="ReadOnlyAttribute.cs" t="Include" />
-              <e p="ShowVariableValue.cs" t="Include" />
-            </e>
-            <e p="Classes" t="Include">
-              <e p="SOArchitectureHelpers.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="SOArchitectureEditorHelpers.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Settings" t="Include">
-            <e p="Editor" t="Include">
-              <e p="SOSettingsEditor.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="SOSettings.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Types" t="Include">
-            <e p="Void" t="Include">
-              <e p="Editor" t="Include">
-                <e p="VoidGameEventEditor.cs" t="Include" />
-              </e>
-              <e p="VoidGameEvent.cs" t="Include" />
-              <e p="VoidGameEventListener.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Variables" t="Include">
-            <e p="Editor" t="Include">
-              <e p="VariableEditorBase.cs" t="Include" />
-            </e>
-            <e p="Interfaces" t="Include">
-              <e p="IVariable.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="VariableBase.cs" t="Include" />
-            </e>
-          </e>
+        <e p="Scenes" t="Include">
+          <e p="Test.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
