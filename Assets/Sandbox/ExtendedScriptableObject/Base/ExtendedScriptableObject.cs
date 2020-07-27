@@ -112,7 +112,8 @@ namespace Game.Test
 
             property.objectReferenceValue = EditorGUI.ObjectField(propertyRect, GUIContent.none,
                 property.objectReferenceValue, type, false);
-            if (GUI.changed) property.serializedObject.ApplyModifiedProperties();
+            if (GUI.changed) 
+                property.serializedObject.ApplyModifiedProperties();
 
             var buttonRect = new Rect(position.x + position.width - buttonWidth, position.y, buttonWidth,
                 EditorGUIUtility.singleLineHeight);

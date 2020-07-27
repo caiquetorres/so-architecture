@@ -3,5 +3,6 @@ using UnityEngine;
     
 public class Test : MonoBehaviour
 {
-    [ExtendedScriptableObject, SerializeField] private ScriptableObjectTest scriptableObject;
+    [ExtendedScriptableObject, SerializeField] private ScriptableObjectTest test;
+    [ExtendedScriptableObject, SerializeField] private ScriptableObjectTest test2;
 }
