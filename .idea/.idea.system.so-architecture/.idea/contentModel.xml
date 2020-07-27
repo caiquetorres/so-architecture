@@ -70,6 +70,9 @@
             <e p="SOGerenerator.cs" t="Include" />
           </e>
           <e p="Helpers" t="Include">
+            <e p="Attributes" t="Include">
+              <e p="ReadOnlyAttribute.cs" t="Include" />
+            </e>
             <e p="Classes" t="Include">
               <e p="SOArchitectureHelpers.cs" t="Include" />
             </e>
