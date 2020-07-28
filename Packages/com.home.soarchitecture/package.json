@@ -12,6 +12,6 @@
     "name": "CaiqueTorres",
     "email": "caiquetorres.bastos@hotmail.com"
   },
-  "type": "library",
-  "hideInEditor": true
+  "type": "tool",
+  "hideInEditor": false
 }

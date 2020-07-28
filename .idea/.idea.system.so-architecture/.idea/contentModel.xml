@@ -11,9 +11,65 @@
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
-      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive">
+        <e p="com.home.soarchitecture" t="Include">
+          <e p="Runtime" t="Include">
+            <e p="Collections" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Collection.cs" t="Include" />
+              </e>
+            </e>
+            <e p="FolderStructure" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="FolderStructure.cs" t="Include" />
+              </e>
+            </e>
+            <e p="GameEvents" t="Include">
+              <e p="Interfaces" t="Include">
+                <e p="IGameEvent.cs" t="Include" />
+                <e p="IGameEventListener.cs" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="GameEventBase.cs" t="Include" />
+                <e p="GameEventListenerBase.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Helpers" t="Include">
+              <e p="Attributes" t="Include">
+                <e p="ExtendedScriptableObjectAttribute.cs" t="Include" />
+                <e p="ReadOnlyAttribute.cs" t="Include" />
+                <e p="ShowVariableValue.cs" t="Include" />
+              </e>
+              <e p="Classes" t="Include">
+                <e p="SOArchitectureHelpers.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Settings" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="SOSettings.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Types" t="Include">
+              <e p="Void" t="Include">
+                <e p="VoidGameEvent.cs" t="Include" />
+                <e p="VoidGameEventListener.cs" t="Include" />
+              </e>
+            </e>
+            <e p="unity.soarchitecture.asmdef" t="Include" />
+            <e p="Variables" t="Include">
+              <e p="Interfaces" t="Include">
+                <e p="IVariable.cs" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="VariableBase.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="system.so-architecture.sln" t="IncludeFlat" />
       <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="unity.soarchitecture.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>
