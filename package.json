@@ -1,8 +1,8 @@
 {
   "name": "com.home.soarchitecture",
-  "version": "1.1.7",
+  "version": "1.2.7",
   "displayName": "SOArchitecture",
-  "description": "This is an example package",
+  "description": "An architecture system for games based on ScriptableObjects ",
   "unity": "2018.1",
   "unityRelease": "0b5",
   "keywords": [
@@ -12,6 +12,5 @@
     "name": "CaiqueTorres",
     "email": "caiquetorres.bastos@hotmail.com"
   },
-  "type": "tool",
   "hideInEditor": false
 }
