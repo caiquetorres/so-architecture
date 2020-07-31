@@ -1,0 +1,17 @@
+{
+    "name": "Unity.soarchitecture.Core.Editor",
+    "references": [
+        "GUID:c2799ef426c750442a4004a4cf94a8c6"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

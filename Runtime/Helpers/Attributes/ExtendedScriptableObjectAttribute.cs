@@ -9,6 +9,7 @@ namespace SOArchitecture
     {
     }
 
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(ExtendedScriptableObject), true)]
     public class ExtendedScriptableObjectDrawer : PropertyDrawer
     {
@@ -161,4 +162,5 @@ namespace SOArchitecture
             return type;
         }
     }
+#endif
 }
