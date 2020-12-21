@@ -1,13 +1,14 @@
 ﻿#if UNITY_EDITOR
 
 using System;
-using System.IO;
-using UnityEditor;
-using UnityEngine;
-using UnityEditorInternal;
 using System.Collections.Generic;
+using System.IO;
+using SOArchitecture.Runtime.Helpers.Classes;
+using UnityEditor;
+using UnityEditorInternal;
+using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Editor.Generator
 {
     public class SOGerenerator : EditorWindow
     {

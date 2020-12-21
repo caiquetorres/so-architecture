@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Runtime.Helpers.Attributes
 {
     public class ExtendedScriptableObject : PropertyAttribute
     {

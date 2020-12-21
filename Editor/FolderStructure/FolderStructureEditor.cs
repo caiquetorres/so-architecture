@@ -2,15 +2,15 @@
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Editor.FolderStructure
 {
-    [CanEditMultipleObjects, CustomEditor(typeof(FolderStructure))]
-    public class FolderStructureEditor : Editor
+    [CanEditMultipleObjects, CustomEditor(typeof(SOArchitecture.Runtime.FolderStructure.Scripts.FolderStructure))]
+    public class FolderStructureEditor : UnityEditor.Editor
     {
         private const string BaseFolders = "BaseFolders";
         private const string EntityFolders = "EntityFolders";
-        
-        private FolderStructure _folderStructure;
+
+        private SOArchitecture.Runtime.FolderStructure.Scripts.FolderStructure _folderStructure;
 
         private ReorderableList _baseFolders;
         private ReorderableList _entityFolders;
@@ -22,11 +22,11 @@ namespace SOArchitecture
         private SerializedProperty _entityFoldersProperty;
 
         #region Initialization
-        
+
         private void OnEnable()
         {
-            _folderStructure = (FolderStructure) target;
-            
+            _folderStructure = (SOArchitecture.Runtime.FolderStructure.Scripts.FolderStructure) target;
+
             _baseFoldersProperty = serializedObject.FindProperty("baseFolders");
             _entityFoldersProperty = serializedObject.FindProperty("entityFolders");
 
@@ -66,7 +66,7 @@ namespace SOArchitecture
                 drawHeaderCallback = rect => { EditorGUI.LabelField(rect, EntityFolders); }
             };
         }
-        
+
         #endregion
 
         public override void OnInspectorGUI()
@@ -74,17 +74,17 @@ namespace SOArchitecture
             EditorGUI.BeginDisabledGroup(true);
             {
                 EditorGUILayout.ObjectField(
-                    "Script:", 
-                    MonoScript.FromScriptableObject((ScriptableObject) target), serializedObject.GetType(), 
+                    "Script:",
+                    MonoScript.FromScriptableObject((ScriptableObject) target), serializedObject.GetType(),
                     false);
             }
             EditorGUI.EndDisabledGroup();
-            
+
             serializedObject.Update();
 
             EditorGUILayout.PropertyField(_baseFolderLength);
             _baseFolders.DoLayoutList();
-            
+
             EditorGUILayout.PropertyField(_entityFolderLength);
             _entityFolders.DoLayoutList();
 

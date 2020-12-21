@@ -1,9 +1,11 @@
-﻿using UnityEditor;
+﻿using SOArchitecture.Editor.Helpers;
+using SOArchitecture.Runtime.GameEvents.Scripts;
+using UnityEditor;
 using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Editor.GameEvents
 {
-    public abstract class GameEventEditorBase<TGameEvent> : Editor
+    public abstract class GameEventEditorBase<TGameEvent> : UnityEditor.Editor
         where TGameEvent : GameEventBase
     {
         private const string DescriptionProperty = "description";
@@ -66,7 +68,7 @@ namespace SOArchitecture
         }
     }
     
-    public abstract class GameEventEditorBase<TValue, TGameEvent> : Editor
+    public abstract class GameEventEditorBase<TValue, TGameEvent> : UnityEditor.Editor
         where TGameEvent : GameEventBase<TValue>
     {
         private const string DescriptionProperty = "description";

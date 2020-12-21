@@ -1,9 +1,13 @@
 {
-    "name": "Unity.soarchitecture.Core.Runtime",
-    "references": [],
-    "includePlatforms": [],
+    "name": "Editor",
+    "references": [
+        "GUID:9733cdad661d63c46872473a33ef9a64"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
-    "allowUnsafeCode": true,
+    "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
