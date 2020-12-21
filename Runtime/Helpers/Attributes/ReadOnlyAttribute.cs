@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Runtime.Helpers.Attributes
 {
     public class ReadOnly : PropertyAttribute { }
 

@@ -1,4 +1,4 @@
-﻿namespace SOArchitecture
+﻿namespace SOArchitecture.Runtime.Variables.Interfaces
 {
     public interface IVariable<T>
     {

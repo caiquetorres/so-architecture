@@ -1,19 +1,23 @@
-﻿using UnityEngine;
+﻿using SOArchitecture.Runtime.GameEvents.Interfaces;
+using SOArchitecture.Runtime.Variables.Interfaces;
+using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Runtime.Variables.Scripts
 {
     public abstract class VariableBase<TValue, TGameEvent> : ScriptableObject, IVariable<TValue>
         where TGameEvent : IGameEvent<TValue>
     {
-        [SerializeField] protected bool isReadOnly; 
+#pragma warning disable 649
+        [SerializeField] protected bool isReadOnly;
         [SerializeField] protected TGameEvent gameEvent;
         [SerializeField] protected TValue value;
-        
+
 #if UNITY_EDITOR
         [TextArea(3, 10), SerializeField] private string description;
+#pragma warning disable 649
 
         public bool log;
-        
+
         public bool IsReadOnly
         {
             get => isReadOnly;
@@ -31,7 +35,7 @@ namespace SOArchitecture
                 {
                     if (log)
                         Debug.LogError("You are trying to set a Read-Only variable: " + this);
-                    
+
                     return;
                 }
 #endif
@@ -47,7 +51,7 @@ namespace SOArchitecture
         }
 
         public override string ToString() => value.ToString();
-        
+
         public static implicit operator TValue(VariableBase<TValue, TGameEvent> variable) => variable.value;
     }
 }

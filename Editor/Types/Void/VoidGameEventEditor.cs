@@ -1,5 +1,9 @@
-﻿using UnityEditor;
-using SOArchitecture;
+﻿using SOArchitecture.Editor.GameEvents;
+using SOArchitecture.Runtime.Types.Void;
+using UnityEditor;
 
-[CustomEditor(typeof(VoidGameEvent))]
-public class VoidGameEventEditor : GameEventEditorBase<VoidGameEvent> { }
+namespace SOArchitecture.Editor.Types.Void
+{
+    [CustomEditor(typeof(VoidGameEvent))]
+    public class VoidGameEventEditor : GameEventEditorBase<VoidGameEvent> { }
+}
