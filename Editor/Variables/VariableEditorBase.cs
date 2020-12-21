@@ -1,9 +1,10 @@
-﻿using UnityEditor;
+﻿using SOArchitecture.Editor.Helpers;
+using UnityEditor;
 using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Editor.Variables
 {
-    public abstract class VariableEditorBase : Editor
+    public abstract class VariableEditorBase : UnityEditor.Editor
     {
         private const string ValueProperty = "value";
         private const string LogProperty = "log";

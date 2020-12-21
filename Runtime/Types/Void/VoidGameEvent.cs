@@ -1,5 +1,8 @@
-﻿using UnityEngine;
-using SOArchitecture;
+﻿using SOArchitecture.Runtime.GameEvents.Scripts;
+using UnityEngine;
 
-[CreateAssetMenu(menuName = "SOArchitecture/GameEvents/void", fileName = "NewVoidGameEvent")]
-public class VoidGameEvent : GameEventBase { }
+namespace SOArchitecture.Runtime.Types.Void
+{
+    [CreateAssetMenu(menuName = "SOArchitecture/GameEvents/void", fileName = "NewVoidGameEvent")]
+    public class VoidGameEvent : GameEventBase { }
+}

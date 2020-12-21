@@ -6,7 +6,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Runtime.FolderStructure.Scripts
 {
     [CreateAssetMenu(menuName = "SOArchitecture/FolderStructure", fileName = "New Folder Structure")]
     public class FolderStructure : ScriptableObject
@@ -14,7 +14,7 @@ namespace SOArchitecture
         private const string DefaultNewFolderStructureLocation = "Assets";
         private const string AssetDatabaseSearchString = "t:FolderStructure";
         private const string DefaultNewFolderStructureName = "FolderStructure.asset";
-        
+
         private static FolderStructure _instance;
 
         private static FolderStructure Instance
@@ -23,11 +23,12 @@ namespace SOArchitecture
             {
                 if (_instance == null)
                     _instance = GetInstance();
-                
+
                 return _instance;
             }
         }
 
+#pragma warning disable 649
         [SerializeField] private List<string> baseFolders = new List<string>
         {
             "3rdParty",
@@ -42,9 +43,10 @@ namespace SOArchitecture
             "ScriptableObjects",
             "Scripts",
         };
+#pragma warning disable 649
 
         #region Asset creation
-        
+
         private static FolderStructure GetInstance()
         {
             var instance = FindInstanceInProject();
@@ -57,7 +59,7 @@ namespace SOArchitecture
 
             if (folderStructureGUIDs.Length == 0)
                 return null;
-            
+
             if (folderStructureGUIDs.Length > 1)
             {
                 throw new Exception("Found more than one instance of FolderStructure" +
@@ -74,14 +76,14 @@ namespace SOArchitecture
 
             AssetDatabase.CreateAsset(newFolderStructure, Path.Combine(DefaultNewFolderStructureLocation, DefaultNewFolderStructureName));
             AssetDatabase.SaveAssets();
-            
+
             return newFolderStructure;
         }
-        
+
         #endregion
-        
+
         #region Folder creation
-        
+
         [MenuItem("Assets/Create/Create Base Folders")]
         public static void CreateBaseFolders()
         {
@@ -89,9 +91,9 @@ namespace SOArchitecture
             for (var i = Instance.baseFolders.Count - 1; i >= 0; i--)
             {
                 var name = Instance.baseFolders[i];
-                if (AssetDatabase.IsValidFolder(string.Concat("Assets/", name))) 
+                if (AssetDatabase.IsValidFolder(string.Concat("Assets/", name)))
                     continue;
-                
+
                 var guid = AssetDatabase.CreateFolder("Assets", name);
                 AssetDatabase.GUIDToAssetPath(guid);
             }
@@ -104,14 +106,14 @@ namespace SOArchitecture
             for (var i = Instance.entityFolders.Count - 1; i >= 0; i--)
             {
                 var name = Instance.entityFolders[i];
-                if (AssetDatabase.IsValidFolder(string.Concat(folderPath, name))) 
+                if (AssetDatabase.IsValidFolder(string.Concat(folderPath, name)))
                     continue;
-                
+
                 var guid = AssetDatabase.CreateFolder(folderPath, name);
                 AssetDatabase.GUIDToAssetPath(guid);
             }
         }
-        
+
         #endregion
     }
 }

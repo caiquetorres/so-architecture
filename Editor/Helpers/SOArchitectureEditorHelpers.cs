@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Editor.Helpers
 {
     public static class SOArchitectureEditorHelpers
     {

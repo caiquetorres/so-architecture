@@ -1,10 +1,11 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using SOArchitecture.Editor.Helpers;
+using UnityEditor;
 using UnityEditorInternal;
+using UnityEngine;
 
-namespace SOArchitecture
+namespace SOArchitecture.Editor.Collections
 {
-    public abstract class CollectionEditorBase : Editor
+    public abstract class CollectionEditorBase : UnityEditor.Editor
     {
         private const string HelpMessage = "If you don't want to raise an event just keep the field as None";
         

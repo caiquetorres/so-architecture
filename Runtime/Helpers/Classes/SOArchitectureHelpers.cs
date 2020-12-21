@@ -1,4 +1,4 @@
-﻿namespace SOArchitecture
+﻿namespace SOArchitecture.Runtime.Helpers.Classes
 {
     public static class SOArchitectureHelpers
     {
